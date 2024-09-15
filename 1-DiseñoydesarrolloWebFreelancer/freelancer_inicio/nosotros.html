@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nosotros</title>
+  </head>
+  <body>
+    <header id="header-container"></header>
+<nav id="nav-container"></nav>
+    <section>
+      <h2>Sobre Nosotros</h2>
+      <p>Información detallada sobre la empresa.</p>
+    </section>
+    <main id="main-container"></main>
+
+    <footer id="footer-container"></footer>
+
+    <script>
+      // Cargar el contenido del header desde index.html
+      fetch("index.html")
+        .then(response => response.text())
+        .then(data => {
+          // Extraer solo el contenido del header
+          const headerContent = data.match(/<header>[\s\S]*<\/header>/)[0];
+          document.getElementById("header-container").innerHTML = headerContent;
+        });
+
+      // Cargar el contenido del footer desde index.html
+      fetch("index.html")
+        .then(response => response.text())
+        .then(data => {
+          const footerContent = data.match(/<footer>[\s\S]*<\/footer>/)[0];
+          document.getElementById("footer-container").innerHTML = footerContent;
+        });
+      fetch("index.html")
+        .then(response => response.text())
+        .then(data => {
+          const mainContent = data.match(/<main>[\s\S]*<\/main>/)[0];
+          document.getElementById("main-container").innerHTML = mainContent;
+        });
+      fetch("index.html")
+        .then(response => response.text())
+        .then(data => {
+          const navContent = data.match(/<nav>[\s\S]*<\/nav>/)[0];
+          document.getElementById("nav-container").innerHTML = navContent;
+        });
+    </script>
+  </body>
+</html>
