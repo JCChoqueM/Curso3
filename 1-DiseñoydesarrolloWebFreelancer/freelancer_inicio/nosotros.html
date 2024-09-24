@@ -4,10 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nosotros</title>
+     <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" href="styles/styles.css" as="style" />
+    <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
     <header id="header-container"></header>
-<nav id="nav-container"></nav>
+   <div class="nav-bg">
+     <nav id="nav-container"></nav>
+   </div>
     <section>
       <h2>Sobre Nosotros</h2>
       <p>Información detallada sobre la empresa.</p>
@@ -16,35 +27,40 @@
 
     <footer id="footer-container"></footer>
 
-    <script>
-      // Cargar el contenido del header desde index.html
-      fetch("index.html")
-        .then(response => response.text())
-        .then(data => {
-          // Extraer solo el contenido del header
-          const headerContent = data.match(/<header>[\s\S]*<\/header>/)[0];
-          document.getElementById("header-container").innerHTML = headerContent;
-        });
+<script>
+  // Función para cargar el contenido interno de una sección específica de index.html
+  function cargarSeccion(selector) {
+    fetch("index.html")
+      .then((response) => response.text())
+      .then((data) => {
+        const regex = new RegExp(`<${selector}([^>]*)>([\\s\\S]*?)<\\/${selector}>`);
+        const match = data.match(regex);
+        const attributes = match[1]; // Captura los atributos de la etiqueta original
+        const sectionContent = match[2]; // Solo selecciona el contenido dentro de las etiquetas
 
-      // Cargar el contenido del footer desde index.html
-      fetch("index.html")
-        .then(response => response.text())
-        .then(data => {
-          const footerContent = data.match(/<footer>[\s\S]*<\/footer>/)[0];
-          document.getElementById("footer-container").innerHTML = footerContent;
-        });
-      fetch("index.html")
-        .then(response => response.text())
-        .then(data => {
-          const mainContent = data.match(/<main>[\s\S]*<\/main>/)[0];
-          document.getElementById("main-container").innerHTML = mainContent;
-        });
-      fetch("index.html")
-        .then(response => response.text())
-        .then(data => {
-          const navContent = data.match(/<nav>[\s\S]*<\/nav>/)[0];
-          document.getElementById("nav-container").innerHTML = navContent;
-        });
-    </script>
+        const container = document.getElementById(`${selector}-container`);
+        container.innerHTML = sectionContent;
+
+        // Agrega los atributos (ejemplo: class) a la etiqueta destino
+        if (attributes.trim()) {
+          // Extraer y aplicar las clases de la etiqueta original
+          const attrRegex = /class="([^"]*)"/;
+          const classMatch = attributes.match(attrRegex);
+          if (classMatch) {
+            container.classList.add(...classMatch[1].split(" "));
+          }
+        }
+      });
+  }
+
+  // Arreglo de selectores de secciones a cargar
+  const secciones = ["header", "footer", "main", "nav"];
+
+  // Cargar todas las secciones en un bucle
+  secciones.forEach((selector) => {
+    cargarSeccion(selector);
+  });
+</script>
+
   </body>
 </html>
