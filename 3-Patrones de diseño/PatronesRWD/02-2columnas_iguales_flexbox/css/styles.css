@@ -26,8 +26,6 @@ h1 {
     max-width: 1200px;
     width: 95%;
     margin: 0 auto;
-    display: flex;
-    gap: 2rem;
 }
 
 .entrada-blog a {
@@ -41,3 +39,10 @@ h1 {
 }
 
 /** CODIGO AQUI **/
+@media (min-width: 768px){
+    .dos-columnas{
+        display: flex;
+        gap: 2rem;
+    }
+    
+}
