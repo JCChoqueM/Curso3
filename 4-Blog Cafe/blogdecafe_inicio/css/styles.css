@@ -1,6 +1,6 @@
 :root {
-  --fuenteHeading: "Open Sans", sans-serif;
-  --fuenteParrafos: "PT Sans", sans-serif;
+  --fuenteHeading: "PT Sans", sans-serif;
+  --fuenteParrafos: "Open Sans", sans-serif;
 
   --primario: #784d3c;
   --blanco: #fff;
@@ -8,8 +8,8 @@
 }
 
 html {
-  font-size: 62.5%; /*NOTE 1rem = a 10px */
   box-sizing: border-box; /*NOTE hack border box*/
+  font-size: 62.5%; /*NOTE 1rem = a 10px */
 }
 
 *,
@@ -75,8 +75,8 @@ img {
 
 /*SECTION - header*/
 .header {
-  background-image: url(../img/banner.jpg);
-  height: 65rem;
+  background-image: url(../img/banner.webp);
+  height: 60rem;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -110,11 +110,11 @@ img {
 .logo {
   color: var(--blanco);
 }
-.logo__Nombre {
-  font-weight: normal;
+.logo__nombre {
+  font-weight: 400;
 }
 .logo__bold {
-  font-weight: bold;
+  font-weight: 700;
 }
 /*!SECTION logo*/
 
