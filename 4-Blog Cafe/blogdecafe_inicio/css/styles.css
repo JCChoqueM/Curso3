@@ -11,8 +11,8 @@
 html {
     font-size: 62.5%;
     box-sizing: border-box;
-    /* hack para box model */
-    /* 1rem = a 10px */
+    /*NOTE hack para box model */
+    /*NOTE 1rem = a 10px */
 }
 
 *,
@@ -29,7 +29,7 @@ body {
     
 }
 
-/** Globales **/
+/*SECTION - Globales */
 .contenedor {
     width: min(90%, 120rem);
     margin: 0 auto;
@@ -62,8 +62,9 @@ h4 {
 img {
     max-width: 100%;
 }
+/*!SECTION Globales*/
 
-/** Utilidades**/
+/*SECTION - Utilidades*/
 .no-margin{
 margin: 0;
 }
@@ -73,9 +74,9 @@ padding: 0;
 .centrar-texto{
 text-align: center;
 }
+/*!SECTION Utilidades*/
 
-
-/** header**/
+/*SECTION - header*/
 .header{
     background-image: url(../img/banner.jpg);
     height: 60rem;
@@ -88,7 +89,10 @@ text-align: center;
     color: var(--blanco);
     margin-top: 5rem;
 }
-/*SECTION - Inicio Logo*/
+/*!SECTION header*/
+
+
+/*SECTION - Logo*/
 .logo{
     color: var(--blanco);
 }
@@ -99,10 +103,10 @@ text-align: center;
 .logo__bold{
     font-weight: bold;
 }
-/*!SECTION fin logo*/
+/*!SECTION logo*/
 
 
-
+/*SECTION - barra*/
 .barra{
     padding-top: 4rem;
 }
@@ -115,6 +119,9 @@ text-align: center;
      }
     
 }
+/*!SECTION barra*/
+
+/*SECTION - Navegacion*/
 @media (min-width: 768px){
     .navegacion{
         display: flex;
@@ -129,4 +136,4 @@ text-align: center;
     font-size: 1.8rem;
     color: var(--blanco);
 }
-
+/*!SECTION Navegacion*/
