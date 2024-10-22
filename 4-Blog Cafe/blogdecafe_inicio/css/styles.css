@@ -134,6 +134,7 @@ img {
 /*!SECTION Navegacion*/
 /*!SECTION header*/
 
+/*SECTION - contenido principal  */
 .contenido-principal{
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -158,5 +159,6 @@ margin-bottom: 2rem;
 .entrada{
   margin-bottom: 5rem;
 }
+/*!SECTION contenido principal*/
 
 
