@@ -139,3 +139,24 @@ img {
   grid-template-columns: 2fr 1fr;
   column-gap: 4rem;
 }
+.boton{
+ padding:1rem 3rem;
+ color: var(--blanco);
+ text-align: center;
+ text-transform: uppercase;
+ border:none;
+ font-weight: bold;
+margin-bottom: 2rem;
+}
+.bonton--primario{
+  background-color: var(--negro);
+}
+.bonton--secundario{
+  display: block;
+  background-color: var(--primario);
+}
+.entrada{
+  margin-bottom: 5rem;
+}
+
+
