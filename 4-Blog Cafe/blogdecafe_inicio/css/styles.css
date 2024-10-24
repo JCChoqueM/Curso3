@@ -3,6 +3,7 @@
   --fuenteParrafos: "Open Sans", sans-serif;
 
   --primario: #784d3c;
+  --gris: #e1e1e1;
   --blanco: #fff;
   --negro: #000;
 }
@@ -142,6 +143,7 @@ img {
     column-gap: 4rem;
   }
 }
+
 .boton {
   padding: 1rem 3rem;
   color: var(--blanco);
@@ -151,14 +153,23 @@ img {
   font-weight: bold;
   margin-bottom: 2rem;
 }
+@media (min-width: 768px) {
+  .boton {
+    display: inline-block;
+  }
+}
 .bonton--primario {
   background-color: var(--negro);
 }
 .bonton--secundario {
-  display: block;
   background-color: var(--primario);
 }
 .entrada {
-  margin-bottom: 5rem;
+  border-bottom: 1px solid var(--gris);
+  margin-bottom: 2rem;
+}
+.entrada:last-of-type{
+  border-bottom: none;
+  margin-bottom: 0;
 }
 /*!SECTION contenido principal*/
