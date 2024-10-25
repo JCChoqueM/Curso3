@@ -135,7 +135,8 @@ img {
 /*!SECTION Navegacion*/
 /*!SECTION header*/
 
-/*SECTION - contenido principal  */
+/*SECTION -  <div class="contenedor contenido-principal">*/
+/*SECTION - contenido-principal*/
 @media (min-width: 768px) {
   .contenido-principal {
     display: grid;
@@ -143,15 +144,31 @@ img {
     column-gap: 4rem;
   }
 }
+/*!SECTION contenido-principal*/
 
+/*SECTION - entrada*/
+.entrada {
+  border-bottom: 1px solid var(--gris);
+  margin-bottom: 2rem;
+}
+.entrada:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+/*!SECTION entrada*/
+
+/*SECTION - boton*/
 .boton {
-  padding: 1rem 3rem;
+  display: block;
+  font-family: var(--fuenteHeading);
   color: var(--blanco);
   text-align: center;
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
   text-transform: uppercase;
-  border: none;
   font-weight: bold;
   margin-bottom: 2rem;
+  border: none;
 }
 @media (min-width: 768px) {
   .boton {
@@ -164,12 +181,6 @@ img {
 .bonton--secundario {
   background-color: var(--primario);
 }
-.entrada {
-  border-bottom: 1px solid var(--gris);
-  margin-bottom: 2rem;
-}
-.entrada:last-of-type{
-  border-bottom: none;
-  margin-bottom: 0;
-}
-/*!SECTION contenido principal*/
+/*!SECTION boton*/
+
+/*!SECTION <div class="contenedor contenido-principal">*/
