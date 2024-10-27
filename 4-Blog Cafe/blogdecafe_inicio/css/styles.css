@@ -25,7 +25,7 @@ body {
   line-height: 2;
 }
 
-/*SECTION - Globales */
+/*SECTION1 - Globales */
 .contenedor {
   width: min(90%, 120rem);
   margin: 0 auto;
@@ -60,9 +60,9 @@ h4 {
 img {
   max-width: 100%;
 }
-/*!SECTION Globales*/
+/*!SECTION1 Globales*/
 
-/*SECTION - Utilidades*/
+/*SECTION1 - Utilidades*/
 .no-margin {
   margin: 0;
 }
@@ -72,9 +72,10 @@ img {
 .centrar-texto {
   text-align: center;
 }
-/*!SECTION Utilidades*/
+/*!SECTION1 Utilidades*/
 
-/*SECTION - header*/
+/*RULES - index.html*/
+/*SECTION1 - header*/
 .header {
   background-image: url(../img/banner.webp);
   height: 60rem;
@@ -93,7 +94,7 @@ img {
   }
 }
 
-/*SECTION - barra*/
+/*SECTION1 - barra*/
 .barra {
   padding-top: 4rem;
 }
@@ -105,9 +106,9 @@ img {
     text-decoration: var(--blanco);
   }
 }
-/*!SECTION barra*/
+/*!SECTION1 barra*/
 
-/*SECTION - Logo*/
+/*SECTION1 - Logo*/
 .logo {
   color: var(--blanco);
 }
@@ -117,9 +118,9 @@ img {
 .logo__bold {
   font-weight: 700;
 }
-/*!SECTION logo*/
+/*!SECTION1 logo*/
 
-/*SECTION - Navegacion*/
+/*SECTION1 - Navegacion*/
 @media (min-width: 768px) {
   .navegacion {
     display: flex;
@@ -132,11 +133,11 @@ img {
   font-size: 1.8rem;
   color: var(--blanco);
 }
-/*!SECTION Navegacion*/
-/*!SECTION header*/
+/*!SECTION1 Navegacion*/
+/*!SECTION1 header*/
 
 /*SECTION -  <div class="contenedor contenido-principal">*/
-/*SECTION - contenido-principal*/
+/*SECTION1 - contenido-principal*/
 @media (min-width: 768px) {
   .contenido-principal {
     display: grid;
@@ -144,9 +145,9 @@ img {
     column-gap: 4rem;
   }
 }
-/*!SECTION contenido-principal*/
+/*!SECTION1 contenido-principal*/
 
-/*SECTION - entrada*/
+/*SECTION1 - entrada*/
 .entrada {
   border-bottom: 1px solid var(--gris);
   margin-bottom: 2rem;
@@ -155,9 +156,9 @@ img {
   border-bottom: none;
   margin-bottom: 0;
 }
-/*!SECTION entrada*/
+/*!SECTION1 entrada*/
 
-/*SECTION - boton*/
+/*SECTION1 - boton*/
 .boton {
   display: block;
   font-family: var(--fuenteHeading);
@@ -181,8 +182,8 @@ img {
 .bonton--secundario {
   background-color: var(--primario);
 }
-/*!SECTION boton*/
-/*SECTION -  <ul class="cursos no-padding">*/
+/*!SECTION1 boton*/
+/*SECTION1 -  <ul class="cursos no-padding">*/
 .cursos {
   list-style: none;
 }
@@ -206,23 +207,25 @@ img {
   font-size: 2rem;
 }
 
-/*!SECTION  <ul class="cursos no-padding">*/
+/*!SECTION1  <ul class="cursos no-padding">*/
 
 /*!SECTION <div class="contenedor contenido-principal">*/
 
-/*SECTION - footer*/
+/*SECTION1 - footer*/
 .footer {
   background-color: #000;
   padding-bottom: 3rem;
   margin-top: 4rem;
 }
-/*!SECTION footer*/
+/*!SECTION1 footer*/
+/*!RULES index.html*/
 
-/*NOTE - nosotros.html*/
-@media (min-width: 768px){
-  .sobre-nosotros{
+/*RULES - nosotros.html*/
+@media (min-width: 768px) {
+  .sobre-nosotros {
     display: grid;
-    grid-template-columns: repeat(2 ,1fr);
+    grid-template-columns: repeat(2, 1fr);
     column-gap: 2rem;
   }
 }
+/*!RULES nosotros.html*/
