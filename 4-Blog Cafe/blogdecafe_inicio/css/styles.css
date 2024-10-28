@@ -25,7 +25,7 @@ body {
   line-height: 2;
 }
 
-/*SECTION1 - Globales */
+/*section - Globales */
 .contenedor {
   width: min(90%, 120rem);
   margin: 0 auto;
@@ -60,9 +60,9 @@ h4 {
 img {
   max-width: 100%;
 }
-/*!SECTION1 Globales*/
+/*!section Globales*/
 
-/*SECTION1 - Utilidades*/
+/*section - Utilidades*/
 .no-margin {
   margin: 0;
 }
@@ -72,10 +72,10 @@ img {
 .centrar-texto {
   text-align: center;
 }
-/*!SECTION1 Utilidades*/
+/*!section Utilidades*/
 
 /*RULES - index.html*/
-/*SECTION1 - header*/
+/*SECTION - header*/
 .header {
   background-image: url(../img/banner.webp);
   height: 60rem;
@@ -94,7 +94,7 @@ img {
   }
 }
 
-/*SECTION1 - barra*/
+/*section - barra*/
 .barra {
   padding-top: 4rem;
 }
@@ -106,9 +106,9 @@ img {
     text-decoration: var(--blanco);
   }
 }
-/*!SECTION1 barra*/
+/*!section barra*/
 
-/*SECTION1 - Logo*/
+/*section - Logo*/
 .logo {
   color: var(--blanco);
 }
@@ -118,9 +118,9 @@ img {
 .logo__bold {
   font-weight: 700;
 }
-/*!SECTION1 logo*/
+/*!section logo*/
 
-/*SECTION1 - Navegacion*/
+/*section - Navegacion*/
 @media (min-width: 768px) {
   .navegacion {
     display: flex;
@@ -133,11 +133,11 @@ img {
   font-size: 1.8rem;
   color: var(--blanco);
 }
-/*!SECTION1 Navegacion*/
-/*!SECTION1 header*/
+/*!section Navegacion*/
+/*!SECTION header*/
 
-/*SECTION -  <div class="contenedor contenido-principal">*/
-/*SECTION1 - contenido-principal*/
+/*SECTION -  main*/
+/*section - contenido-principal*/
 @media (min-width: 768px) {
   .contenido-principal {
     display: grid;
@@ -145,20 +145,22 @@ img {
     column-gap: 4rem;
   }
 }
-/*!SECTION1 contenido-principal*/
+/*!section contenido-principal*/
 
-/*SECTION1 - entrada*/
+/*section - entrada*/
 .entrada {
   border-bottom: 1px solid var(--gris);
   margin-bottom: 2rem;
+  /*NOTE - añade una linea de separacion*/
 }
 .entrada:last-of-type {
   border-bottom: none;
   margin-bottom: 0;
+  /* NOTE - quita la ultima linea de separacion */
 }
-/*!SECTION1 entrada*/
+/*!section entrada*/
 
-/*SECTION1 - boton*/
+/*section - boton*/
 .boton {
   display: block;
   font-family: var(--fuenteHeading);
@@ -182,18 +184,20 @@ img {
 .bonton--secundario {
   background-color: var(--primario);
 }
-/*!SECTION1 boton*/
-/*SECTION1 -  <ul class="cursos no-padding">*/
+/*!section boton*/
+/*section -  <ul class="cursos no-padding">*/
 .cursos {
   list-style: none;
 }
 .widget-curso {
   border-bottom: 1px solid var(--gris);
   margin-bottom: 2rem;
+  /*NOTE - añade una linea de separacion*/
 }
 .widget-curso:last-of-type {
   border-bottom: none;
   margin-bottom: 0;
+  /* NOTE - quita la ultima linea de separacion */
 }
 .widget-curso__label {
   font-family: var(--fuenteHeading);
@@ -207,17 +211,17 @@ img {
   font-size: 2rem;
 }
 
-/*!SECTION1  <ul class="cursos no-padding">*/
+/*!section  <ul class="cursos no-padding">*/
 
-/*!SECTION <div class="contenedor contenido-principal">*/
+/*!SECTION main*/
 
-/*SECTION1 - footer*/
+/*SECTION - footer*/
 .footer {
   background-color: #000;
   padding-bottom: 3rem;
   margin-top: 4rem;
 }
-/*!SECTION1 footer*/
+/*!SECTION footer*/
 /*!RULES index.html*/
 
 /*RULES - nosotros.html*/
