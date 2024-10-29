@@ -266,7 +266,7 @@ img {
 
 /*RULES - nosotros.html*/
 /*SECTION - principal*/
-/*section - sobre-nosotros*/
+/*class - sobre-nosotros*/
 @media (min-width: 768px) {
   .sobre-nosotros {
     display: grid; /* Utiliza grid para la sección sobre nosotros */
@@ -288,6 +288,45 @@ img {
 }
 */
 /*!mirror */
-/*!section - sobre-nosotros*/
+/*!class - sobre-nosotros*/
 /*!SECTION principal*/
 /*!RULES nosotros.html*/
+
+/*RULES - cursos.html*/
+/*SECTION - principal*/
+/*class curso*/
+.curso {
+  padding: 3rem 0;
+  border-bottom: 1px solid red;
+}
+@media (min-width: 768px) {
+  .curso {
+    display: grid; /* Utiliza grid para la sección sobre nosotros */
+    grid-template-columns: 1fr 2fr; /* Dos columnas */
+    column-gap: 2rem; /* Espacio entre columnas */
+  }
+}
+.curso:last-of-type {
+  border-bottom: none;
+}
+/* .curso__imagen {
+}
+.curso__informacion {
+} */
+.curso__label {
+  font-family: var(--fuenteHeading); /* Fuente para etiqueta del curso */
+  font-weight: bold; /* Peso de fuente bold para etiqueta */
+}
+.curso__info {
+  font-weight: normal; /* Peso de fuente normal para información */
+}
+.curso__label,
+.curso__info {
+  font-size: 2rem; /* Tamaño de fuente para etiqueta e información */
+}
+/* .curso__descripcion {
+} */
+
+/*!class curso*/
+/*!SECTION principal*/
+/*!RULES cursos.html*/
