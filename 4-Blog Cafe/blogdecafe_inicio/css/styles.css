@@ -265,6 +265,8 @@ img {
 /*!RULES index.html*/
 
 /*RULES - nosotros.html*/
+/*SECTION - principal*/
+/*section - sobre-nosotros*/
 @media (min-width: 768px) {
   .sobre-nosotros {
     display: grid; /* Utiliza grid para la sección sobre nosotros */
@@ -286,5 +288,6 @@ img {
 }
 */
 /*!mirror */
-
+/*!section - sobre-nosotros*/
+/*!SECTION principal*/
 /*!RULES nosotros.html*/
