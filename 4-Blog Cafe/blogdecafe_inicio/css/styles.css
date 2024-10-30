@@ -202,10 +202,10 @@ img {
     display: inline-block; /* En pantallas grandes, botón como inline-block */
   }
 }
-.bonton--primario {
+.boton--primario {
   background-color: var(--negro); /* Fondo negro para botón primario */
 }
-.bonton--secundario {
+.boton--secundario {
   background-color: var(--primario); /* Fondo con color primario para botón secundario */
 }
 /*!class boton*/
@@ -330,3 +330,12 @@ img {
 /*!class curso*/
 /*!SECTION principal*/
 /*!RULES cursos.html*/
+
+/*RULES - entrada.html*/
+/*NOTE no tiene reglas para  CCS*/
+/*!RULES entrada.html*/
+
+/*RULES - contacto.html*/
+
+
+/*!RULES contacto.html*/
