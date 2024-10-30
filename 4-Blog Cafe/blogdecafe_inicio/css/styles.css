@@ -307,7 +307,7 @@ img {
   }
 }
 .curso:last-of-type {
-  border-bottom: none;  /* Sin línea en la última entrada */
+  border-bottom: none; /* Sin línea en la última entrada */
 }
 /* .curso__imagen {
 }
@@ -336,6 +336,55 @@ img {
 /*!RULES entrada.html*/
 
 /*RULES - contacto.html*/
+/* SECTION principal */
+/* section imagen background */
+/* class contacto-bg */
+.contacto-bg {
+  background-image: url(../img/contacto.jpg); /* Imagen de fondo */
+  height: 40rem; /* Altura del header */
+  background-size: cover; /* Cubre todo el espacio disponible */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center center; /* Centra la imagen en el contenedor */
+  border-radius: 15px; /* Bordes redondeados para el fondo */
+  border: 1px solid red; /* Borde rojo para el contenedor de fondo */
+}
+/* !class contacto-bg */
+/* !section imagen background */
 
+/* section formulario */
+/* class formulario */
+.formulario {
+  background-color: var(--blanco); /* Color de fondo blanco para el formulario */
+  margin: -5rem auto 0; /* Margen negativo en la parte superior para superposición y centrado horizontal */
+  width: 95%; /* Ancho del formulario al 95% del contenedor padre */
+  padding: 5rem 5rem 0rem; /* Padding superior de 5rem, padding lateral de 5rem y sin padding inferior */
+  border-radius: 7px; /* Bordes redondeados para el formulario */
+  border: 2px solid var(--primario); /* Borde con color primario definido en las variables CSS */
+}
+/* !class formulario */
 
+/* class campo */
+.campo {
+  display: flex; /* Usar flexbox para alinear elementos dentro del campo */
+  margin-bottom: 2rem; /* Margen inferior para separar campos */
+}
+.campo__label {
+  flex: 0 0 9rem; /* El ancho del label es fijo en 9rem, sin crecimiento ni contracción */
+  font-weight: bold; /* Texto en negrita para el label */
+  text-align: right; /* Alinear texto a la derecha */
+  padding-right: 2rem; /* Espaciado a la derecha del label */
+}
+.campo__field {
+  flex: 1; /* El campo ocupa el espacio restante del contenedor flex */
+  border: 1px ridge var(--primario); /* Borde tipo ridge con color primario */
+  border-radius: 7px; /* Bordes redondeados para el campo */
+}
+.campo__field--textarea {
+  height: 20rem; /* Altura fija para el área de texto */
+}
+/* !class campo */
+
+/* !section formulario */
+
+/* !SECTION principal */
 /*!RULES contacto.html*/
