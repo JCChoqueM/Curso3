@@ -1,6 +1,6 @@
 :root {
-  --fuenteHeading: "PT Sans", sans-serif; /* Fuente para encabezados */
-  --fuenteParrafos: "Open Sans", sans-serif; /* Fuente para párrafos */
+  --fuenteHeading: 'PT Sans', sans-serif; /* Fuente para encabezados */
+  --fuenteParrafos: 'Open Sans', sans-serif; /* Fuente para párrafos */
 
   --primario: #784d3c; /* Color primario */
   --gris: #e1e1e1; /* Color gris */
@@ -90,9 +90,14 @@ img {
 /*RULES - index.html*/
 
 /*SECTION - header*/
+.webp .header {
+  background-image: url(../img/banner.webp); /* Imagen de fondo */
+}
+.no-webp .header {
+  background-image: url(../img/banner.jpg); /* Imagen de fondo */
+}
 /*class - header*/
 .header {
-  background-image: url(../img/banner.webp); /* Imagen de fondo */
   height: 60rem; /* Altura del header */
   background-size: cover; /* Cubre todo el espacio */
   background-repeat: no-repeat; /* Sin repetición de imagen */
@@ -195,12 +200,15 @@ img {
   text-transform: uppercase; /* Texto en mayúsculas */
   font-weight: bold; /* Peso de fuente bold para el botón */
   margin-bottom: 2rem; /* Margen inferior */
-  border: none; /* Sin borde */
+  border: none;
 }
 @media (min-width: 768px) {
   .boton {
     display: inline-block; /* En pantallas grandes, botón como inline-block */
   }
+}
+.boton:hover {
+  cursor: pointer;
 }
 .boton--primario {
   background-color: var(--negro); /* Fondo negro para botón primario */
