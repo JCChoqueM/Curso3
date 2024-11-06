@@ -4,10 +4,12 @@ const productoObjeto = {
   precio: 300,
   disponible: true,
 };
-let { precio } = productoObjeto;
+const precioProducto = productoObjeto.precio;
+const nombreProducto = productoObjeto.producto;
+
+console.log('precioProducto :', precioProducto);
+console.log('nombreProducto :', nombreProducto);
+
+const { producto, precio } = productoObjeto;
 console.log('precio :', precio);
-precio = 66;
-console.log('precio :', precio);
-
-
-
+console.log('producto :', producto);
