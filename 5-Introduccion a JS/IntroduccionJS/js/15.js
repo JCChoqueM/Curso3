@@ -1,4 +1,13 @@
 const meses = ['enero', 'febrero', 'marzo', 'abril'];
+
+
+console.log("🚀 ----------------------------------🚀");
+console.log("🚀 ~ file: 15.js:3 ~ meses:", meses);
+console.log("🚀 ----------------------------------🚀");
+
+
+
+
 console.log(meses);
 console.table(meses);
 
@@ -8,7 +17,8 @@ const carrito = [
   { nombre: 'Tablet', precio: 300 },
   { nombre: 'Audifonos', precio: 200 },
 ];
-
+console.log("________________")
+console.dir(carrito)
 meses.forEach(function (mes) {
   if (mes == 'marzo') {
     console.log('marzo si existe');
