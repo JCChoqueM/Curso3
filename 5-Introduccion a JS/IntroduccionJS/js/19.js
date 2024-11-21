@@ -32,14 +32,14 @@ const resultado8 = () => console.log(8 + 5);
 console.log(resultado8());
 */
 
-let total = 0;
 
+let total = 0;
 function agregarCarrito(precio) {
-  return (total += precio);
+    return (total += precio);
 }
 
 function calcularImpuesto(total) {
-  return 1.15 * total;
+    return 1.15 * total;
 }
 
 total = agregarCarrito(200);
