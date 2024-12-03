@@ -34,11 +34,3 @@ console.log(resultado);
 
 resultado = carrito.filter((producto) => producto.nombre !== 'Audifonos');
 console.log(resultado);
-switch (key) {
-    case value:
-        
-        break;
-cas
-    default:
-        break;
-}
