@@ -46,7 +46,7 @@ enlaces[0].classList.add('nueva-clasesita');
 </a>;*/
 // #endregion
 
-enlaces[0].classList.remove('navegacion__enlce');
+enlaces[0].classList.remove('navegacion__enlace');
 // #region
 //NOTE removiendo un class
 /*<a 
@@ -57,3 +57,7 @@ enlaces[0].classList.remove('navegacion__enlce');
 </a>;*/
 // #endregion
 //!section - modificando class de un elemento
+
+/* 
+console.log(enlaces[0].classList.value); */
+
