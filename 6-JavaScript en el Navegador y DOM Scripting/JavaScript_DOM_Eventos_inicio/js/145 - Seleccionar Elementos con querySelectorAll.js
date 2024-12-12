@@ -12,4 +12,48 @@ const enlaces = document.querySelectorAll('.navegacion a');
 length: 6
 [[Prototype]]: NodeList*/
 //!section fin seleccionando todos los elementos ".navegacion a" html
-console.log(enlaces);
+
+//section - modificando texto de un elemento
+enlaces[0].textContent = 'content';
+// #region enlaces[0] //nosotros header
+//NOTE enlaces[0] Nosotros(original)
+/*<a 
+href="nosotros.html"
+  class="navegacion__enlace"
+>
+  Nosotros
+</a>;*/
+
+//NOTE enlaces[0] Nosotros(modificado)
+/*<a 
+  href="nosotros.html"
+  class="navegacion__enlace"
+>
+  content
+</a>;*/
+// #endregion
+//!section modificando texto de un elemento
+
+//section - modificando class de un elemento
+enlaces[0].classList.add('nueva-clasesita');
+// #region a
+//NOTE añadiendo  una clase a la clase
+/*<a 
+  href="nosotros.html"
+  class="navegacion__enlace nueva-clasesita"
+>
+  content
+</a>;*/
+// #endregion
+
+enlaces[0].classList.remove('navegacion__enlce');
+// #region
+//NOTE removiendo un class
+/*<a 
+  href="nosotros.html"
+  class="nueva-clasesita"
+>
+  content
+</a>;*/
+// #endregion
+//!section - modificando class de un elemento

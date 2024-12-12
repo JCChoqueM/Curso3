@@ -10,7 +10,7 @@ const heading = document.querySelector('.header__texto h2');
   </h2>*/
 // #endregion
 //!section fin seleccionando un elemento del html
-console.log(heading);
+/* console.log(heading); */
 
 //section - modificando heading
 heading.textContent = 'Nuevo heading';
