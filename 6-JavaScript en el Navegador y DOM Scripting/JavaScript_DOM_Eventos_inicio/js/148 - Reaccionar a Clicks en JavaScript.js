@@ -1,2 +1,2 @@
-const btnEnviar = document.querySelector('form  div input ');
-console.log(btnEnviar.textContent)
+const btnEnviar = document.querySelector('.boton--primario');
+console.log(btnEnviar)
