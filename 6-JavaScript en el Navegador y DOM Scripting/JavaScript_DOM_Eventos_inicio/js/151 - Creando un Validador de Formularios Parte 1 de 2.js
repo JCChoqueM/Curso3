@@ -41,7 +41,7 @@ function mostrarError(mensaje) {
   formulario.appendChild(error);
   //desaparesca despúes de x segundos
   setTimeout(() => {
-    nombre.remove();
+    error.remove();
     console.log(error);
   }, 5000);
 }

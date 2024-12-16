@@ -20,4 +20,3 @@ function leeTexto(event) {
 
   console.log(datos);
 } */
-
