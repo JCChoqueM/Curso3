@@ -1,4 +1,4 @@
-// Selecciona el botón con la clase 'boton--primario' del DOM
+/* // Selecciona el botón con la clase 'boton--primario' del DOM
 const btnEnviar = document.querySelector('.boton--primario');
 
 // Agrega un event listener al botón para manejar el evento 'click'
@@ -12,3 +12,4 @@ btnEnviar.addEventListener('click', function (event) {
   // Muestra un mensaje en la consola para confirmar que la acción se realizó
   console.log('enviando');
 });
+ */
