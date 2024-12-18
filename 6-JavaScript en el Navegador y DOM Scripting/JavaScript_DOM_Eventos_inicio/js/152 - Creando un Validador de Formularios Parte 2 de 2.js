@@ -54,3 +54,37 @@ function mostrarAlerta(mensaje, error = null) {
     alerta.remove();
   }, 5000);
 }
+
+/*
+class Mensaje {
+  constructor(formulario) {
+    this.formulario = formulario;
+  }
+
+  mostrar(mensaje, tipo) {
+    const parrafo = document.createElement('P');
+    parrafo.textContent = mensaje;
+    parrafo.classList.add(tipo);
+
+    this.formulario.appendChild(parrafo);
+    this._desaparecer(parrafo, 5000);
+  }
+
+  _desaparecer(elemento, tiempo) {
+    setTimeout(() => {
+      elemento.remove();
+    }, tiempo);
+  }
+}
+
+// Uso de la clase Mensaje
+const formulario = document.getElementById('miFormulario'); // Asumiendo que hay un formulario en el DOM
+const mensaje = new Mensaje(formulario);
+
+// Mostrar un error
+mensaje.mostrar('Ha ocurrido un error', 'error');
+
+// Mostrar un mensaje correcto
+mensaje.mostrar('Envío realizado correctamente', 'correcto');
+
+*/
