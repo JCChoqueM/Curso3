@@ -26,6 +26,7 @@ formulario.addEventListener('submit', function (event) {
   const { nombre, email, mensaje } = datos;
   if (nombre === '' || email === '' || mensaje === '') {
     mostrarAlerta('Todos los campos son obligatorios', true);
+
     return; //temrina la funcion
   }
   //alerta de que se envio correctamente los datos
@@ -37,6 +38,7 @@ formulario.addEventListener('submit', function (event) {
 //SECTION - leer texto
 function leeTexto(event) {
   datos[event.target.id] = event.target.value;
+  console.log(datos)
 }
 //!SECTION  fin-leer texto
 
