@@ -4,7 +4,9 @@
   "description": "Proyecto con Gulp, SASS y HTML",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "sass --watch src/scss:build/css",
+    "tarea": "gulp tarea",
+    "dev": "gulp dev"
   },
   "keywords": [
     "SASS",
@@ -13,6 +15,9 @@
   "author": "Julio Cesar Choque Mamani",
   "license": "ISC",
   "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^6.0.0",
     "sass": "^1.83.4"
   }
 }
