@@ -20,6 +20,11 @@
     @content;
   }
 }
+@mixin grid($columnas, $espaciado) {
+  display: grid;
+  grid-template-columns: repeat($columnas, 1fr);
+  gap: $espaciado;
+}
 
 /* @mixin heading($color: red, $border-radius: false) {
   //$color es un parámetro y red es el valor por defecto
