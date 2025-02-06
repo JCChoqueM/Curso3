@@ -1,3 +1,4 @@
+/* SECTION header */
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
@@ -40,7 +41,7 @@
     }
   }
 }
-
+/* !SECTION fin - header */
 /* .prueba {
   @include m.heading(v.$verde, true); // parámetro
 }

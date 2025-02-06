@@ -1,16 +1,14 @@
+/* SECTION imagen contenido */
 @use 'base/mixins' as m;
 @use 'base/variables' as v;
-.contenedor {
-}
+
 .sobre-festival {
   padding: 5rem 0;
   @include m.tablet {
     @include m.grid(2, 5rem);
-
   }
 }
-.imagen {
-}
+
 .contenido-festival {
   display: flex;
   flex-direction: column;
@@ -27,3 +25,4 @@
     font-weight: 700;
   }
 }
+/* !SECTION fin - imagen contenido */
