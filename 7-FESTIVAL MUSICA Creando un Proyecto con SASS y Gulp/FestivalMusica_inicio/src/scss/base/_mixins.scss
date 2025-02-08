@@ -25,6 +25,11 @@
   grid-template-columns: repeat($columnas, 1fr);
   gap: $espaciado;
 }
+@mixin resetear-lista() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
 /* @mixin heading($color: red, $border-radius: false) {
   //$color es un parámetro y red es el valor por defecto

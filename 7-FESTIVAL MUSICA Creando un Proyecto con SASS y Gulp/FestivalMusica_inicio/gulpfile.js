@@ -73,8 +73,19 @@ function versionAvif(done) {
 }
 /* !SECTION fin - versionAvif  */
 
+/* SECTION  javascript */
+function javascript(done) {
+  src('src/js/**/*.js')
+    /* prettier-ignore-start */
+    .pipe(dest('build/js'));
+  /* prettier-ignore-end */
+  done();
+}
+/* !SECTION fin - javascript */
+
 function dev(done) {
   watch('src/scss/**/*.scss', css);
+  watch('src/js/**/*.js', javascript);
   done();
 }
 
@@ -85,9 +96,10 @@ function dev(done) {
 /* section2 hacer disponibles las funciones creadas */
 // Exportar las funciones para que estén disponibles al ejecutar gulp
 exports.css = css; // Exporta la función css
+exports.js = javascript; // Exporta la función css
 exports.imagenes = imagenes; // Exporta la función imagenes
 exports.versionWebp = versionWebp; // Exporta la función versionWebp
 exports.versionAvif = versionAvif; // Exporta la función versionAvif
-exports.dev = parallel(imagenes, versionWebp, versionAvif, dev); // Exporta la función dev que ejecuta versionWebp y dev en paralelo dev a la misma ves trae a la funcion  css
+exports.dev = parallel(imagenes, versionWebp, versionAvif, javascript, dev); // Exporta la función dev que ejecuta versionWebp y dev en paralelo dev a la misma ves trae a la funcion  css
 /* !section2 fin - hacer disponibles las funciones creadas */
 /* !SECTION fin - ejecutar varias tareas al mismo tiempo */

@@ -334,6 +334,9 @@ body {
   font-size: 1.6rem;
   font-family: "Montserrat", sans-serif;
 }
+body.fijar-body {
+  overflow: hidden;
+}
 
 p {
   font-size: 2rem;
