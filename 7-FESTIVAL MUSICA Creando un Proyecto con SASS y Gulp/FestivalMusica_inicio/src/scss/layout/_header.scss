@@ -5,6 +5,28 @@
 .header {
   background-color: v.$verde;
 
+  @include m.tablet {
+    &.fijo {
+      left: 0;
+      top: 0;
+      position: fixed;
+      width: 100%;
+      box-shadow: 0 0.1rem 0.3rem #333;
+      animation: aparecer 1s ease-out;
+    }
+
+    @keyframes aparecer {
+      0% {
+        opacity: 0;
+        transform: translateY(-40px); /* Puede ser ajustado según el efecto que desees */
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
   h1 {
     color: v.$blanco;
     text-align: center;

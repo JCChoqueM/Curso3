@@ -2,6 +2,13 @@ const { src, dest, watch, parallel } = require('gulp'); //funciones que nos da g
 /* SECTION css */
 const sass = require('gulp-sass')(require('sass'));
 const plumber = require('gulp-plumber');
+/* section minizar css */
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const postcss = require('gulp-postcss');
+const sourcemaps = require('gulp-sourcemaps');
+/* !section fin - minizar css */
+
 /* !SECTION fin css */
 
 /* SECTION Imagenes */
@@ -15,8 +22,11 @@ const avif = require('gulp-avif');
 function css(done) {
   src('src/scss/**/*.scss') //Identifica el archivo .scss a compilar
     /* prettier-ignore-start */
+    .pipe(sourcemaps.init()) //inicializa el mapa de sourcemaps
     .pipe(plumber())
     .pipe(sass().on('error', sass.logError)) //Compilar el archivo .scss
+    .pipe(postcss([autoprefixer(), cssnano()])) //minificar el css
+    .pipe(sourcemaps.write('.')) //almacena el mapa de sourcemaps en el mismo directorio que el archivo css
     .pipe(dest('build/css')); //almacenarla en el disco duro
   /* prettier-ignore-end */
   done(); // callback
@@ -38,6 +48,10 @@ function imagenes(done) {
   done();
 }
 /* !SECTION fin - Imagenes */
+
+/* SECTION javaScript */
+const terser = require('gulp-terser-js');
+/* !SECTION fin - javaScript */
 
 /* SECTION versionWebp  */
 //REGISTRAR  o crear nueva tarea
@@ -77,6 +91,9 @@ function versionAvif(done) {
 function javascript(done) {
   src('src/js/**/*.js')
     /* prettier-ignore-start */
+    .pipe(sourcemaps.init())
+    .pipe(terser()) //minificar el js
+    .pipe(sourcemaps.write('.'))
     .pipe(dest('build/js'));
   /* prettier-ignore-end */
   done();

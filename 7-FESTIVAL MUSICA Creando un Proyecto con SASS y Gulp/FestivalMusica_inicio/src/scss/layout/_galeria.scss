@@ -54,18 +54,23 @@
     cursor: pointer;
   }
 }
-.btn-prev, .btn-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-size: 2rem;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .btn-prev { left: 10px; }
-  .btn-next { right: 10px; }
+.btn-prev,
+.btn-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 2rem;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.btn-prev {
+  left: 10px;
+}
+.btn-next {
+  right: 10px;
+}
 /* !SECTION fin - Galeria */

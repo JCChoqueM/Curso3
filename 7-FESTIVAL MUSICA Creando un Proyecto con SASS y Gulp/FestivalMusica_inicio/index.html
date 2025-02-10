@@ -11,6 +11,25 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Rock & EDM Festival</title>
+
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="build/css/app.css"
+    />
+  
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com"
@@ -35,9 +54,9 @@
       <div class="contenedor contenido-header">
         <h1>Rock & EDM Festival</h1>
         <nav class="navegacion-principal">
-          <a href="#">Line Up</a>
-          <a href="#">Galería</a>
-          <a href="#">Boletos</a>
+          <a href="#lineup">Line Up</a>
+          <a href="#galeria">Galería</a>
+          <a href="#boletos">Boletos</a>
         </nav>
       </div>
     </header>
@@ -71,7 +90,7 @@
       </video>
     </div>
     <!-- !SECTION fin video -->
-    <!-- SECTION imagen contenido -->
+    <!-- SECTION imagen contenido  sobre-festival -->
     <section class="contenedor sobre-festival">
       <div class="imagen">
         <picture>
@@ -101,10 +120,10 @@
         </p>
       </div>
     </section>
-    <!-- !SECTION fin imagen contenido -->
+    <!-- !SECTION fin imagen contenido sobre-festival -->
 
     <!-- SECTION Line Up -->
-    <section class="lineup">
+    <section id="lineup" class="lineup">
       <h3>Line Up</h3>
       <!-- section3 viernes 21 -->
       <p class="dia">Viernes 21</p>
@@ -179,7 +198,7 @@
     <!-- !SECTION fin - Line Up -->
 
     <!-- SECTION galeria -->
-    <section class="galeria contenedor">
+    <section id="galeria" class="galeria contenedor">
       <h3>Galería</h3>
       <ul class="galeria-imagenes"></ul>
     </section>
@@ -187,7 +206,7 @@
 
     <!-- SECTION boletos -->
     <!-- section contenedor boletos -->
-    <section class="boletos bg-verde">
+    <section id="boletos" class="boletos bg-verde">
       <h3>Boletos</h3>
       <!-- section2 contenedor días 1 y 2 -->
       <div class="contenedor contenedor-boletos">
@@ -234,6 +253,12 @@
     <!-- !section fin - contenedor boletos -->
 
     <!-- !SECTION fin - boletos -->
+
+    <!-- SECTION footer -->
+    <footer class="site-footer">
+      <p>Rock & EDM Festival - Todos los derechos reservados</p>
+    </footer>
+    <!-- !SECTION fin - footer -->
     <script src="build/js/app.js"></script>
   </body>
 </html>
