@@ -1,0 +1,113 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+.boletos {
+  padding: 5rem 0;
+  h3 {
+    text-align: center;
+    color: v.$blanco;
+    margin-bottom: 2rem;
+  }
+  .contenedor-boletos {
+    @include m.tablet {
+      @include m.grid(2, 5rem);
+    }
+  }
+}
+.pase {
+  .nombre-pase  {
+    text-align: center;
+    font-size: 2.8rem;
+    color: v.$blanco;
+  }
+  &-header,
+  &-footer {
+    padding: 0.5rem;
+    p {
+      margin: 0;
+      text-align: center;
+      color: v.$blanco;
+    }
+  }
+
+  &-header {
+    background-color: v.$rosa;
+    p {
+      text-transform: uppercase;
+      font-size: 1.6rem;
+    }
+  }
+  &-body {
+    background-color: v.$blanco;
+    ul {
+      @include m.resetear-lista;
+      li,
+      :nth-child(odd) {
+        background-color: v.$blanco;
+        padding: 1rem;
+        border-bottom: 1px solid #e1e1e1;
+      }
+    }
+  }
+  &-footer {
+    background-color: v.$morado;
+    p {
+      font-weight: bold;
+      font-size: 2.4rem;
+    }
+  }
+}
+
+/* .boletos {
+  padding: 5rem 0;
+ p{
+    margin-bottom: 1rem;
+ }
+  h3 {
+    text-align: center;
+    color: v.$blanco;
+  }
+}
+.contenedor-boletos {
+  @include m.tablet {
+    @include m.grid(2, 5rem);
+  }
+}
+.pase-body {
+  ul {
+    @include m.resetear-lista;
+    background-color: v.$blanco;
+    li{
+        padding: 1rem;
+        border-bottom: 1px solid #5c725e;
+    }
+    li:nth-child(odd) {
+      background-color: v.$blanco;
+      padding: 1rem;
+    }
+  }
+}
+.nombre-pase {
+  text-align: center;
+  font-size: 2.4rem;
+  color: v.$blanco;
+}
+.pase-header {
+  background-color: v.$rosa;
+  padding: 0.5rem;
+  p {
+    margin: 0;
+    color: v.$blanco;
+    text-align: center;
+  }
+}
+.pase-footer {
+  background-color: v.$morado;
+  padding: 0.5rem;
+  p {
+    margin: 0;
+    color: v.$blanco;
+    text-align: center;
+    font-weight: 700;
+  }
+}
+ */
