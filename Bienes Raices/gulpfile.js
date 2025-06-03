@@ -40,7 +40,7 @@ function imagenes(done) {
     optimizationLevel: 3,
   };
   /* !section fin - opciones */
-  src('src/img/**/*.{png,jpg}')
+  src('src/img/**/*.{png,jpg,svg}')
     /* prettier-ignore-start */
     .pipe(cache(imagemin(opciones)))
     .pipe(dest('build/img'));
