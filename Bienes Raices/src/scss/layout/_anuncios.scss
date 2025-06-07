@@ -1,6 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
-@use "sass:color";
+@use 'sass:color';
 
 @include m.tablet {
   .contenedor-anuncios {
@@ -8,8 +8,8 @@
   }
 }
 .anuncio {
-background-color: color.adjust(v.$gris, $lightness: 5%);
- border: 1px solid color.adjust(v.$gris, $lightness: -10%);
+  background-color: color.adjust(v.$gris, $lightness: 5%);
+  border: 1px solid color.adjust(v.$gris, $lightness: -10%);
   margin-bottom: 2rem;
   .contenido-anuncio {
     padding: 2rem;
@@ -18,16 +18,17 @@ background-color: color.adjust(v.$gris, $lightness: 5%);
   p {
     margin: 0;
   }
-  .precio{
-    font-weight: bold;
-    color: v.$verde;
-    font-size: 3rem;
-  }
+}
+.precio {
+  font-weight: bold;
+  color: v.$verde;
+  font-size: 3rem;
 }
 .iconos-caracteristicas {
   display: flex;
   list-style: none;
   padding: 0;
+  max-width: 40rem;
 
   li {
     flex: 1;
@@ -37,7 +38,7 @@ background-color: color.adjust(v.$gris, $lightness: 5%);
       margin-right: 1rem;
     }
     p {
-     font-weight: v.$black;
+      font-weight: v.$black;
     }
   }
 }
