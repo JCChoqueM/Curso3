@@ -20,6 +20,11 @@
     margin-bottom: 0;
   }
 }
+.informacion-meta {
+  span {
+    color: v.$amarillo;
+  }
+}
 .texto-entrada {
   a {
     color: v.$negro;
@@ -41,8 +46,5 @@
       background-color: v.$verde;
       margin-top: 1rem;
     }
-  }
-  span {
-    color: v.$amarillo;
   }
 }
