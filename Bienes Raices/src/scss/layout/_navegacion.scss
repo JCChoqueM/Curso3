@@ -1,5 +1,9 @@
+// BLOQUE imports [inicio]
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+// !BLOQUE imports [fin]
+
+// BLOQUE barra [inicio]
 .barra {
   display: flex;
   flex-direction: column;
@@ -9,11 +13,15 @@
     justify-content: space-between;
   }
 }
+// !BLOQUE barra [fin]
+
+// BLOQUE navegacion [inicio]
 .navegacion {
   @include m.tablet {
     display: flex;
     align-items: center;
   }
+  // subBloque enlace [inicio]
   a {
     color: v.$blanco;
     text-decoration: none;
@@ -21,11 +29,15 @@
     display: block;
     text-align: center;
     @include m.tablet {
-        margin-right: 2rem;
-        font-size: 1.8rem;
-        &:last-of-type {
-          margin-right: 0;
-        }
+      margin-right: 2rem;
+      font-size: 1.8rem;
+      // subBloque2 ultimo-enlace [inicio]
+      &:last-of-type {
+        margin-right: 0;
+      }
+      // !subBloque2 ultimo-enlace [fin]
     }
   }
+  // !subBloque enlace [fin]
 }
+// !BLOQUE navegacion [fin]

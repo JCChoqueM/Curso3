@@ -1,58 +1,63 @@
-/* SECTION header */
+/* BLOQUE imports [inicio] */
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
-/* Si el navegador NO soporta WebP, usa imagen JPG como fondo */
+/* !BLOQUE imports [fin] */
+
+/* BLOQUE fondo-header [inicio] */
 .no-webp .inicio {
   background-image: url(../img/header.jpg);
 }
-
-/* Si el navegador SÍ soporta WebP, usa imagen WebP (más ligera) como fondo */
 .webp .inicio {
   background-image: url(../img/header.webp);
 }
+/* !BLOQUE fondo-header [fin] */
 
-/* Estilos para el header general */
+/* BLOQUE header [inicio] */
 .header {
-  background-color: v.$grisOscuro; /* Usa color gris oscuro definido en variables */
-  padding: 1rem 0 3rem 0; /* Espaciado interno: arriba 1rem, derecha 0, abajo 3rem, izquierda 0 */
+  background-color: v.$grisOscuro;
+  padding: 1rem 0 3rem 0;
 
-  /* El & se refiere a este mismo selector, es decir .header */
+  /* subBloque header-inicio [inicio] */
   &.inicio {
-    /* Esto aplica a .header.inicio, es decir, cuando tiene ambas clases */
-    background-position: center center; /* Centra la imagen de fondo */
-    background-size: cover; /* Hace que la imagen de fondo cubra todo el área */
+    background-position: center center;
+    background-size: cover;
 
     /* Mixin para pantallas tablet (usa media queries) */
     @include m.tablet {
-      min-height: 70rem; /* Altura mínima de 70rem en pantallas tablet */
+      min-height: 70rem;
     }
 
-    /* Estilos para el contenedor interno dentro de .header.inicio */
+    /* subBloque2 contenido-header [inicio] */
     .contenido-header {
+      /* También fija altura mínima en tablet dentro del contenido */
       @include m.tablet {
-        min-height: 70rem; /* También fija altura mínima en tablet dentro del contenido */
+        min-height: 70rem;
       }
     }
+    /* !subBloque2 contenido-header [fin] */
   }
+  /* !subBloque header-inicio [fin] */
 }
+/* !BLOQUE header [fin] */
 
-/* Contenedor principal del contenido dentro del header */
+/* BLOQUE contenido-header [inicio] */
 .contenido-header {
-  display: flex; /* Usa flexbox para organizar los elementos hijos */
-  flex-direction: column; /* Ordena en columnas (de arriba hacia abajo) */
-  justify-content: space-between; /* Deja espacio entre los elementos */
-  height: 100%; /* Ocupa todo el alto disponible del contenedor */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 
-  /* Estilos para el título principal dentro del header */
+  /* subBloque titulo-header [inicio] */
   h1 {
-    text-align: left; /* Alinea el texto a la izquierda */
-    color: v.$blanco; /* Usa color blanco definido en variables */
-    font-size: 2.5rem; /* Tamaño de fuente 2.5rem */
-    line-height: 2.5rem; /* Altura de línea 2.5rem para mantener proporción */
-    max-width: 400px; /* Limita el ancho máximo a 400px para que no se expanda demasiado */
+    text-align: left;
+    color: v.$blanco;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    max-width: 400px;
   }
+  /* !subBloque titulo-header [fin] */
 }
-
+/* !BLOQUE contenido-header [fin] */
 
 /* --- EXPLICACIÓN EXTRA --- */
 
