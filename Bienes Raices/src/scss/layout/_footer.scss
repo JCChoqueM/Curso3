@@ -13,6 +13,10 @@
     padding-top: calc(v.$separacion / 2);
   }
   // !subBloque contenedor-footer [fin]
+  .navegacion{
+    visibility: visible;
+    opacity: 1;
+  }
   // subBloque copyright [inicio]
   .copyrigth {
     color: v.$blanco;
