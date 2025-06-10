@@ -15,15 +15,33 @@
   li {
     color: v.$gris;
   }
-  .anuncio {
+  .anuncio,
+  .resumen-propiedad {
     background-color: v.$grisOscuro;
-    border: 1px solid v.$gris;
- 
-    .precio{
-        color: v.$verde;
+    border: 1px solid v.$grisOscuro;
+
+    .precio {
+      color: v.$verde;
     }
-    .icono{
-        filter: invert(100%);
+    .icono {
+      filter: invert(100%);
+    }
+  }
+  .texto-nosotros {
+    color: v.$blanco;
+  }
+  .formulario {
+    label,
+    legend,
+    p {
+      color: v.$gris;
+    }
+    input:not([type='submit']),
+    textarea,
+    select {
+      background-color: v.$grisOscuro;
+      border: 1px solid v.$grisOscuro;
+      color: v.$blanco;
     }
   }
 }

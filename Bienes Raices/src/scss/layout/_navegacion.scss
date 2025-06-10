@@ -43,7 +43,8 @@
 .navegacion {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.3s ease-in-out, opacity 0.3s linear;
+  height: 0;
+  transition: visibility 0.3s ease-in-out, opacity 0.3s linear height 2s linear;
   @include m.tablet {
     display: flex;
     align-items: center;
@@ -82,4 +83,5 @@
 .mostrar {
   visibility: visible;
   opacity: 1;
+  height: auto;
 }
