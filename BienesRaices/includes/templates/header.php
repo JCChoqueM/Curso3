@@ -14,7 +14,7 @@
 
 <body>
     <!-- BLOQUE header [inicio] -->
-    <header class="header <?php echo isset($inicio) ? 'inicio' : ''; ?>">
+    <header class="header <?php echo $inicio ? 'inicio' : ''; ?>">
         <div class="contenedor contenido-header">
             <!-- subBloque barra [inicio] -->
             <div class="barra">
