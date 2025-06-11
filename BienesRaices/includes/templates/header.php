@@ -9,12 +9,12 @@
     <title>Bienes Raices </title>
     <link
         rel="stylesheet"
-        href="build/css/app.css" />
+        href="/curso3/BienesRaices/build/css/app.css" />
 </head>
 
 <body>
     <!-- BLOQUE header [inicio] -->
-    <header class="header inicio">
+    <header class="header <?php echo isset($inicio) ? 'inicio' : ''; ?>">
         <div class="contenedor contenido-header">
             <!-- subBloque barra [inicio] -->
             <div class="barra">
@@ -45,7 +45,9 @@
                 <!-- !subBloque2 navegacion [fin] -->
             </div>
             <!-- !subBloque barra [fin] -->
-            <h1>Venta de Casas y Departamentos Exclusivos de Lujo</h1>
+            <?php if (isset($inicio)) { ?>
+                <h1>Venta de Casas y Departamentos Exclusivos de Lujo</h1>
+            <?php } ?>
         </div>
     </header>
     <!-- !BLOQUE header [fin] -->
