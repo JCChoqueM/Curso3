@@ -343,5 +343,5 @@ incluirTemplate('header');
   <!-- !BLOQUE Casas y Depas en Venta [fin] -->
 </main>
 <?php
-include './includes/templates/footer.php';
+incluirTemplate('footer');
 ?>

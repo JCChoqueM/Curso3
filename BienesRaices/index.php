@@ -1,6 +1,6 @@
 <?php
 require 'includes/funciones.php';
-incluirTemplate('header',$inicio=true);
+incluirTemplate('header', $inicio = true);
 ?>
 <!-- BLOQUE main [inicio] -->
 <main class="contenedor seccion">
@@ -323,6 +323,6 @@ incluirTemplate('header',$inicio=true);
 
 <!-- BLOQUE footer [inicio] -->
 <?php
-include './includes/templates/footer.php';
+incluirTemplate('footer');
 ?>
 <!-- !BLOQUE footer [fin] -->

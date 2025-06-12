@@ -99,5 +99,5 @@ incluirTemplate('header');
 </section>
 <!-- !BLOQUE Mas sobre nostros [fin] -->
 <?php
-include './includes/templates/footer.php';
+incluirTemplate('footer');
 ?>

@@ -6,5 +6,5 @@ incluirTemplate('header');
   <h1>Titulo Página</h1>
 </main>
 <?php
-include './includes/templates/footer.php';
+incluirTemplate('footer');
 ?>

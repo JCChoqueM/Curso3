@@ -122,5 +122,5 @@ incluirTemplate('header');
   <!--  !subBloque Nuestro Blog [fin] -->
 </main>
 <?php
-include './includes/templates/footer.php';
+incluirTemplate('footer');
 ?>
