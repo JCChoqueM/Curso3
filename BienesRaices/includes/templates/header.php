@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8" />
@@ -9,7 +9,7 @@
     <title>Bienes Raices </title>
     <link
         rel="stylesheet"
-        href="/curso3/BienesRaices/build/css/app.css" />
+        href="/build/css/app.css" />
 </head>
 
 <body>
@@ -21,19 +21,19 @@
                 <!-- subBloque2 logo BienesRaices [inicio] -->
                 <a href="/curso3/BienesRaices/index.php">
                     <img
-                        src="build/img/logo.svg"
+                        src="/build/img/logo.svg"
                         alt="Logotipo de Bienes Raices" />
                 </a>
                 <!-- !subBloque2 logo BienesRaices [fin] -->
                 <div class="mobile-menu">
                     <img
-                        src="build/img/barras.svg"
+                        src="/build/img/barras.svg"
                         alt="icono menu responsive" />
                 </div>
                 <!-- subBloque2 navegacion [inicio] -->
                 <div class="derecha">
                     <img
-                        src="build/img/dark-mode.svg"
+                        src="/build/img/dark-mode.svg"
                         class="dark-mode-boton" />
                     <nav class="navegacion">
                         <a href="nosotros.php"> Nosotros</a>
