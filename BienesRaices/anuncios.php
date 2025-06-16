@@ -5,7 +5,7 @@ incluirTemplate('header');
 <main class="contenedor seccion">
   <h1>Casa y Depas en Venta</h1>
   <!-- BLOQUE Casas y Depas en Venta [inicio] -->
-
+    
   <!-- subBloque .contenedor-anuncios [inicio] -->
   <div class="contenedor-anuncios">
     <!-- subBloque2 anuncio '1Casa de lujo en el Lago' [inicio] -->
