@@ -1,8 +1,23 @@
 <?php
-/* echo "<pre>";
-var_dump($_GET);
-echo "</pre>";  
-exit; */
+/* BLOQUE 1-Importa la conexion [inicio]*/
+require '../includes/config/database.php';
+$db = conectarDB();
+/* !BLOQUE 1-Importa la conexion [fin]*/
+
+/* BLOQUE 2-escribir query [inicio]*/
+$query = "SELECT * FROM propiedades";
+/* !BLOQUE 2-escribir query [fin]*/
+
+/* BLOQUE 3-consultar la BD [inicio]*/
+$resultadoConsulta = mysqli_query($db, $query);
+/* !BLOQUE 3-consultar la BD [fin]*/
+/* echo '<pre>';
+print_r($resultadoConsulta['num_rows']);
+echo '</pre>'; */
+
+/* echo '<pre>';
+var_dump(mysqli_fetch_assoc($resultadoConsulta)['titulo']);
+echo '</pre>'; */
 
 $resultado = $_GET['resultado'] ?? null;
 /* var_dump($resultado); */
@@ -27,21 +42,30 @@ incluirTemplate('header');
         <th>Acciones</th>
       </tr>
     </thead>
+    <!-- BLOQUE 4-Mostrar los resultado [inicio]-->
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Casa en la playa</td>
-        <td><img src="/imagenes/1d22e29869b0c0974d16cb035d94a361.jpg" class="imagen-tabla"</td>
-        <td>$21000</td>
-        <td>
+      <?php while ($propiedad = mysqli_fetch_assoc($resultadoConsulta)): ?>
+
+        <tr>
+          <td><?php echo $propiedad['id']; ?></td>
+          <td><?php echo $propiedad['titulo']; ?></td>
+          <td><img src="/imagenes/<?php echo $propiedad['imagen']; ?>" class="imagen-tabla" /></td>
+          <td>$<?php echo $propiedad['precio']; ?></td>
+          <td>
             <a href="#" class="boton-rojo-block">Eliminar</a>
             <a href="#" class="boton-amarillo-block">Actualizar</a>
-        </td>
-       
-      </tr>
+          </td>
+        </tr>
+      <?php endwhile; ?>
     </tbody>
+    <!-- !BLOQUE 4-Mostrar los resultado [fin]-->
+
   </table>
 </main>
 <?php
+
+/* BLOQUE 5-cerrar la conexión [inicio]*/
+mysqli_close($db);
+/* !BLOQUE 5-cerrar la conexión [fin]*/
 incluirTemplate('footer');
 ?>
