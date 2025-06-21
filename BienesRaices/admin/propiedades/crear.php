@@ -13,7 +13,7 @@ $precio = '';
 
 $descripcion = '';
 $habitaciones = '';
-$wc = $_POST['wc'];
+$wc = '';
 $estacionamiento = '';
 $vendedores_id = '';
 /* !BLOQUE arreglo con mensajes de errores [fin]*/
