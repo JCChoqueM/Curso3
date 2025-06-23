@@ -19,7 +19,7 @@
             <!-- subBloque barra [inicio] -->
             <div class="barra">
                 <!-- subBloque2 logo BienesRaices [inicio] -->
-                <a href="/curso3/BienesRaices/index.php">
+                <a href="/index.php">
                     <img
                         src="/build/img/logo.svg"
                         alt="Logotipo de Bienes Raices" />
