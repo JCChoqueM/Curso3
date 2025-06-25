@@ -1,65 +1,68 @@
 <?php
+$id = $_GET['id'];
+$id = filter_var($id, FILTER_VALIDATE_INT);
+if (!$id) {
+  header('Location: /anuncios.php');
+}
 
 require 'includes/funciones.php';
 incluirTemplate('header');
 /* REGLA 1-Importa la conexion*/
 require __DIR__ . '/includes/config/database.php';
 $db = conectarDB();
-$id = $_GET['id'];
-$id = filter_var($id, FILTER_VALIDATE_INT);
-if (!$id) {
-  header('Location: /anuncios.php');
-}
 /* REGLA 2-Escribir query*/
 $query = "SELECT * FROM propiedades where id = $id";
 /* REGLA 3-consultar la Base de Datos*/
 $resultadoConsulta = mysqli_query($db, $query);
+$propiedad = mysqli_fetch_assoc($resultadoConsulta);
+
+
 ?>
 
 <!--REGLA_ 4-mostrar resultados[inicio]  -->
 <main class="contenedor contenido-centrado">
-  <?php while ($propiedad = mysqli_fetch_assoc($resultadoConsulta)): ?>
-    <h1><?php echo $propiedad['titulo']; ?></h1>
-    <div class="anuncio">
-      <img
-        loading="lazy"
-        width="200"
-        height="300"
-        src="/imagenes/<?php echo $propiedad['imagen']; ?>"
-        alt="imagen de la propiedad" />
 
-      <div class="resumen-propiedad">
-        <p class="precio">$<?php echo $propiedad['precio']; ?></p>
-        <ul class="iconos-caracteristicas">
-          <li>
-            <img
-              class="icono"
-              src="build/img/icono_wc.svg"
-              alt="icono wc" />
-            <p><?php echo $propiedad['wc']; ?></p>
-          </li>
-          <li>
-            <img
-              class="icono"
-              src="build/img/icono_estacionamiento.svg"
-              alt="icono estacionamiento" />
-            <p><?php echo $propiedad['estacionamiento']; ?></p>
-          </li>
-          <li>
-            <img
-              class="icono"
-              src="build/img/icono_dormitorio.svg"
-              alt="icono dormitorio" />
-            <p><?php echo $propiedad['habitaciones']; ?></p>
-          </li>
-        </ul>
-        <p>
-          <?php echo $propiedad['descripcion']; ?>
-        </p>
+  <h1><?php echo $propiedad['titulo']; ?></h1>
+  <div class="anuncio">
+    <img
+      loading="lazy"
+      width="200"
+      height="300"
+      src="/imagenes/<?php echo $propiedad['imagen']; ?>"
+      alt="imagen de la propiedad" />
 
-      </div>
+    <div class="resumen-propiedad">
+      <p class="precio">$<?php echo $propiedad['precio']; ?></p>
+      <ul class="iconos-caracteristicas">
+        <li>
+          <img
+            class="icono"
+            src="build/img/icono_wc.svg"
+            alt="icono wc" />
+          <p><?php echo $propiedad['wc']; ?></p>
+        </li>
+        <li>
+          <img
+            class="icono"
+            src="build/img/icono_estacionamiento.svg"
+            alt="icono estacionamiento" />
+          <p><?php echo $propiedad['estacionamiento']; ?></p>
+        </li>
+        <li>
+          <img
+            class="icono"
+            src="build/img/icono_dormitorio.svg"
+            alt="icono dormitorio" />
+          <p><?php echo $propiedad['habitaciones']; ?></p>
+        </li>
+      </ul>
+      <p>
+        <?php echo $propiedad['descripcion']; ?>
+      </p>
+
     </div>
-  <?php endwhile; ?>
+  </div>
+
 
 </main>
 
