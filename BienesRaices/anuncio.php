@@ -2,11 +2,9 @@
 $id = $_GET['id'];
 $id = filter_var($id, FILTER_VALIDATE_INT);
 if (!$id) {
-  header('Location: /anuncios.php');
+  header('Location: /');
 }
 
-require 'includes/funciones.php';
-incluirTemplate('header');
 /* REGLA 1-Importa la conexion*/
 require __DIR__ . '/includes/config/database.php';
 $db = conectarDB();
@@ -14,9 +12,14 @@ $db = conectarDB();
 $query = "SELECT * FROM propiedades where id = $id";
 /* REGLA 3-consultar la Base de Datos*/
 $resultadoConsulta = mysqli_query($db, $query);
+if (!$resultadoConsulta->num_rows) {
+  header('Location: /');
+}
+
 $propiedad = mysqli_fetch_assoc($resultadoConsulta);
 
-
+require 'includes/funciones.php';
+incluirTemplate('header');
 ?>
 
 <!--REGLA_ 4-mostrar resultados[inicio]  -->
