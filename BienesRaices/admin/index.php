@@ -1,7 +1,13 @@
 <?php
-/*  echo  '<pre>';
-var_dump($_POST);
-echo '</pre>'; */
+require '../includes/funciones.php';
+session_start();
+
+$auth = estaAutenticado();
+
+if (!$auth) {
+  header('Location: /');
+}
+
 
 /* BLOQUE 1-Importa la conexion [inicio]*/
 require '../includes/config/database.php';
@@ -44,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 /* var_dump($resultado); */
-require '../includes/funciones.php';
+
 incluirTemplate('header');
 ?>
 <main class="contenedor seccion">

@@ -1,7 +1,12 @@
 <?php
-/* echo '<pre>';
-var_dump($_GET);
-echo '</pre>'; */
+require '../../includes/funciones.php';
+session_start();
+
+$auth = estaAutenticado();
+
+if (!$auth) {
+  header('Location: /');
+}
 
 /* BLOQUE varlidar la URL por ID válido [inicio]*/
 $id = $_GET['id'] ?? null;
@@ -132,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   }
 }
 
-require '../../includes/funciones.php';
+
 incluirTemplate('header');
 ?>
 <main class="contenedor seccion">
