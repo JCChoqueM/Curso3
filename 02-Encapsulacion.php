@@ -1,13 +1,15 @@
 <?php
-//Abstraccion
 declare(strict_types=1);
 
 include 'includes/header.php';
+//Encapsulacion
 
 
 class Producto
 {
-    
+    // Public - Se puede acceder y modificar en cualquier lugar (clase y objeto)
+    // protected - Se puede acceder unicamente en la clase
+    // private solo miembros de la misma clase pueden acceder a el
     public function __construct(
         public string $nombre,
         public int $precio,
