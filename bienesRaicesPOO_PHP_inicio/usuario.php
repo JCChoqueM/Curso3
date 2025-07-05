@@ -1,6 +1,7 @@
 <?php
 /* REGLA 1-Importa la conexion*/
-require __DIR__ . '/includes/config/database.php';
+//Incluye el Header
+require 'includes/app.php';
 $db = conectarDB();
 
 /* REGLA 2-Crear un email y password*/

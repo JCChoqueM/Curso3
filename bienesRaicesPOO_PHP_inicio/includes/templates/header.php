@@ -23,7 +23,7 @@ $auth = $_SESSION['login'] ?? false;
 <body>
     <!-- BLOQUE header [inicio] -->
     <header class="header <?php echo $inicio ? 'inicio' : ''; ?>">
-        <div class="contenedor contenido-header">
+        <div class="contenedor <?php echo $inicio ? 'contenido-header' : ''; ?> ">
             <!-- subBloque barra [inicio] -->
             <div class="barra">
                 <!-- subBloque2 logo BienesRaices [inicio] -->

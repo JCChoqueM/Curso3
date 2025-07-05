@@ -5,8 +5,7 @@ if (!$id) {
   header('Location: /');
 }
 
-/* REGLA 1-Importa la conexion*/
-require __DIR__ . '/includes/config/database.php';
+require 'includes/app.php';
 $db = conectarDB();
 /* REGLA 2-Escribir query*/
 $query = "SELECT * FROM propiedades where id = $id";
@@ -18,7 +17,7 @@ if (!$resultadoConsulta->num_rows) {
 
 $propiedad = mysqli_fetch_assoc($resultadoConsulta);
 
-require 'includes/funciones.php';
+
 incluirTemplate('header');
 ?>
 

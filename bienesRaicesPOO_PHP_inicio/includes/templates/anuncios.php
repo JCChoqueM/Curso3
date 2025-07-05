@@ -1,6 +1,6 @@
   <?php
     /* BLOQUE 1-Importa la conexion [inicio]*/
-    require __DIR__ . '/../config/database.php';
+
     $db = conectarDB();
     /* !BLOQUE 1-Importa la conexion [fin]*/
 
