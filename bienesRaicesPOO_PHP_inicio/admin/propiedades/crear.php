@@ -32,7 +32,9 @@ $vendedores_id = '';
 /* !BLOQUE arreglo con mensajes de errores [fin]*/
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-
+$propiedad = new Propiedad($_POST);
+$propiedad->guardar();
+debuguear($propiedad);
   /*   
     echo "<pre>";
   var_dump($_POST);
@@ -106,8 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     /* !subBloque3 subir la imagen [fin]*/
     /* !subBloque2 subida de archivos [fin]*/
-    $query = " INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, wc,
-   estacionamiento,creado,vendedores_id) VALUES ('$titulo','$precio','$nombreImagen','$descripcion','$habitaciones','$wc','$estacionamiento', '$creado','$vendedores_id')";
+   
     var_dump($query);
     $resultado = mysqli_query($db, $query);
     if ($resultado) {
@@ -165,7 +166,7 @@ incluirTemplate('header');
           <option
             <?php echo $vendedores_id === $row['id'] ? 'selected' : ''; ?>
             value="<?php echo $row['id']; ?>">
-            <?php echo $row['nombre'] . "" . $row['apellido']; ?>
+            <?php echo $row['nombre'] . "" . $row['apeliido']; ?>
           </option>
         <?php endwhile; ?>
       </select>
