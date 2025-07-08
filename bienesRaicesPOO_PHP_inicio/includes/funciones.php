@@ -8,12 +8,27 @@ function incluirTemplate(string $nombre, bool $inicio = false)
     // define('TEMPLATES_URL','/templates');   
     // include "includes/temaplates/$nombre.php";
 }
-function estaAutenticado(): bool
+function estaAutenticado()
 {
     session_start();
+
+    if (!$_SESSION['login']) {
+        header('Location: /');
+    }
+}
+/* function estaAutenticado(): bool
+{
+     session_start();
     $auth = $_SESSION['login'] ?? false;
     if ($auth) {
         return true;
     }
     return false;
+} */
+function debuguear($variable)
+{
+    echo "<pre>";
+    var_dump($variable);
+    echo "</pre>";
+    exit;
 }

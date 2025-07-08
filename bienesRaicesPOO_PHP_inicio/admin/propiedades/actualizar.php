@@ -1,6 +1,6 @@
 <?php
 require '../../includes/funciones.php';
-session_start();
+
 
 $auth = estaAutenticado();
 

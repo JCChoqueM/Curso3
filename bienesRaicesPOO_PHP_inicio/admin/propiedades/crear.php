@@ -1,13 +1,18 @@
 <?php
-require '../../includes/funciones.php';
-session_start();
+require '../../includes/app.php';
 
-$auth = estaAutenticado();
+use App\Propiedad;
 
-if (!$auth) {
+
+
+
+/* $auth = estaAutenticado(); */
+estaAutenticado();
+
+/* if (!$auth) {
   header('Location: /');
-}
-require '../../includes/config/database.php';
+} */
+
 $db = conectarDB();
 /* BLOQUE consultar para obtener los vendedores [inicio]*/
 $consulta = "SELECT * FROM vendedores";
