@@ -7,9 +7,11 @@
       <a href="contacto.php">Contacto</a>
     </nav>
   </div>
-  <p class="copyrigth">Todos los derechos reservados <?php echo date('Y');?> &copy</p>
+  <p class="copyrigth">Todos los derechos reservados <?php echo date('Y'); ?> &copy</p>
 </footer>
 <script src="/build/js/modernizr.js"></script>
 <script src="/build/js/app.js"></script>
+<script src="/llenado.js"></script>
 </body>
+
 </html>

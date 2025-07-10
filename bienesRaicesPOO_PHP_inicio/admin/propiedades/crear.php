@@ -7,6 +7,7 @@ use App\Propiedad;
 
 
 /* $auth = estaAutenticado(); */
+
 estaAutenticado();
 
 /* if (!$auth) {
@@ -32,9 +33,9 @@ $vendedores_id = '';
 /* !BLOQUE arreglo con mensajes de errores [fin]*/
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-$propiedad = new Propiedad($_POST);
-$propiedad->guardar();
-debuguear($propiedad);
+  $propiedad = new Propiedad($_POST);
+  $propiedad->guardar();
+  /* debuguear($propiedad); */
   /*   
     echo "<pre>";
   var_dump($_POST);
@@ -108,7 +109,7 @@ debuguear($propiedad);
 
     /* !subBloque3 subir la imagen [fin]*/
     /* !subBloque2 subida de archivos [fin]*/
-   
+
     var_dump($query);
     $resultado = mysqli_query($db, $query);
     if ($resultado) {
@@ -123,6 +124,7 @@ incluirTemplate('header');
 <main class="contenedor seccion">
   <h1>Crear</h1>
   <a href="/admin" class="boton boton-verde">Volver</a>
+  <button type="button" class="boton boton-amarillo" id="auto-fill">Llenado Automático</button>
   <?php foreach ($errores as $error): ?>
     <div class="alerta error">
       <?php echo $error; ?>
@@ -166,7 +168,7 @@ incluirTemplate('header');
           <option
             <?php echo $vendedores_id === $row['id'] ? 'selected' : ''; ?>
             value="<?php echo $row['id']; ?>">
-            <?php echo $row['nombre'] . "" . $row['apeliido']; ?>
+            <?php echo $row['nombre'] . " " . $row['apeliido']; ?>
           </option>
         <?php endwhile; ?>
       </select>
