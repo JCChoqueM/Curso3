@@ -21,7 +21,9 @@ $resultadoVendedores = mysqli_query($db, $consulta);
 /* !BLOQUE consultar para obtener los vendedores [fin]*/
 
 /* BLOQUE arreglo con mensajes de errores [inicio]*/
-$errores = [];
+$errores = Propiedad::getErrores();
+
+
 $titulo = '';
 $precio = '';
 
@@ -34,62 +36,23 @@ $vendedores_id = '';
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   $propiedad = new Propiedad($_POST);
-  $propiedad->guardar();
-  /* debuguear($propiedad); */
-  /*   
-    echo "<pre>";
-  var_dump($_POST);
-  echo "</pre>"; */
-  /*   echo "<pre>";
-  var_dump($_FILES);
-  echo "</pre>"; */
-  $titulo = mysqli_real_escape_string($db,  $_POST['titulo']);
-  $precio = mysqli_real_escape_string($db,     $_POST['precio']);
+  echo "<hr>";
+  echo '<pre>';
+  var_dump($propiedad);
+  echo '</pre>';
+  
+  $errores=$propiedad->validar();
 
-  $descripcion = mysqli_real_escape_string($db,     $_POST['descripcion']);
-  $habitaciones = mysqli_real_escape_string($db,     $_POST['habitaciones']);
-  $wc = mysqli_real_escape_string($db,     $_POST['wc']);
-  $estacionamiento = mysqli_real_escape_string($db,     $_POST['estacionamiento']);
-  $vendedores_id = mysqli_real_escape_string($db,     $_POST['vendedores_id']);
-  $creado = date('Y/m/d');
-
-  $image = $_FILES['imagen'];
-
-
-  if (empty($titulo)) {
-    $errores[] = "Debes añadir un titulo";
-  }
-  if (empty($precio)) {
-    $errores[] = "Debes añadir un precio";
-  }
-  if (strlen($descripcion) < 50) {
-    $errores[] = "La descripcion es obligatoria y debe tener al menos 50 caracteres";
-  }
-  if (empty($habitaciones)) {
-    $errores[] = "Debes añadir un numero de habitaciones";
-  }
-  if (empty($wc)) {
-    $errores[] = "Debes añadir un numero de baños";
-  }
-  if (empty($estacionamiento)) {
-    $errores[] = "Debes añadir un numero de estacionamientos";
-  }
-  if (empty($vendedores_id)) {
-    $errores[] = "Debes Elejir un vendedor";
-  }
-  if (empty($image['name']) || $image['error']) {
-    $errores[] = "La imagen es obligatoria";
-  }
-
-  /* subBloque validar por tamaño(1 mb máximo) [inicio]*/
-  $medida = 1000 * 1000;
-  if ($image['size'] > $medida) {
-    $errores[] = "La imagen es muy pesada";
-  }
-  /* !subBloque validar por tamaño(1 mb máximo) [fin]*/
-
+  echo "<hr>";
+  echo '<pre>';
+  var_dump($errores);
+  echo '</pre>';
+ 
 
   if (empty($errores)) {
+      $propiedad->guardar();
+
+  $imagen = $_FILES['imagen'];
 
     /* subBloque2 subida de archivos [inicio]*/
     /* subBloque3 crear carpeta de imagenes [inicio]*/
@@ -104,13 +67,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     /*     var_dump($nombreImagen); */
     /* !subBloque3 generar un nombre unico [fin]*/
     /* subBloque3 subir la imagen [inicio]*/
-    move_uploaded_file($image['tmp_name'], $carpetaImagenes . $nombreImagen);
+    move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen);
 
 
     /* !subBloque3 subir la imagen [fin]*/
     /* !subBloque2 subida de archivos [fin]*/
-
-    var_dump($query);
+    /* $query = " INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, wc,
+estacionamiento,creado,vendedores_id) VALUES ('$titulo','$precio','$nombreImagen','$descripcion','$habitaciones','$wc','$estacionamiento', '$creado','$vendedores_id')"; */
+    /*     var_dump($query); */
     $resultado = mysqli_query($db, $query);
     if ($resultado) {
       header('Location: /admin?resultado=1');
