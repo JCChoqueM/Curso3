@@ -31,7 +31,7 @@ class Propiedad
         $this->id = $args['id'] ?? '';
         $this->titulo = $args['titulo'] ?? '';
         $this->precio = $args['precio'] ?? '';
-        $this->imagen = $args['imagen'] ?? 'imagen.jpg';
+        $this->imagen = $args['imagen'] ?? '';
         $this->descripcion = $args['descripcion'] ?? '';
         $this->habitaciones = $args['habitaciones'] ?? '';
         $this->wc = $args['wc'] ?? '';
@@ -52,7 +52,7 @@ class Propiedad
         $query .= "')";
 
         $resultado = self::$db->query($query);
-        debuguear($resultado);
+        return $resultado;
     }
     //Identificar y unir los atributs de la BD
     public function atributos()
@@ -73,7 +73,14 @@ class Propiedad
         }
         return $sanitizado;
     }
-
+    //Subida de archivos
+    public function setImagen($imagen)
+    {
+        //Asgnar al atributo de uimagen el nombre de la imagen
+        if ($imagen) {
+            $this->imagen = $imagen;
+        }
+    }
     //Validacion
     public static function getErrores()
     {
@@ -87,7 +94,7 @@ class Propiedad
         if (!$this->precio) {
             self::$errores[] = "Debes añadir un precio";
         }
-        if (strlen(!$this->descripcion) < 50) {
+        if (strlen($this->descripcion) < 50) {
             self::$errores[] = "La descripcion es obligatoria y debe tener al menos 50 caracteres";
         }
         if (!$this->habitaciones) {
@@ -102,15 +109,10 @@ class Propiedad
         if (!$this->vendedores_id) {
             self::$errores[] = "Debes Elejir un vendedor";
         }
-        /*         if (!$this->imagen['name'] || !$this->imagen['error']) {
-            $errores[] = "La imagen es obligatoria";
+        if (!$this->imagen) {
+            self::$errores[] = "La imagen es obligatoria";
         }
 
-    
-        $medida = 1000 * 1000;
-        if ($this->image['size'] > $medida) {
-            $errores[] = "La imagen es muy pesada";
-        } */
-       return self::$errores;
+        return self::$errores;
     }
 }

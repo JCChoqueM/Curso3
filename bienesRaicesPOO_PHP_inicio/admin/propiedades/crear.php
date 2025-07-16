@@ -1,8 +1,10 @@
 <?php
 require '../../includes/app.php';
 
-use App\Propiedad;
 
+use App\Propiedad;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver as GdDriver;
 
 
 
@@ -20,7 +22,7 @@ $consulta = "SELECT * FROM vendedores";
 $resultadoVendedores = mysqli_query($db, $consulta);
 /* !BLOQUE consultar para obtener los vendedores [fin]*/
 
-/* BLOQUE arreglo con mensajes de errores [inicio]*/
+/* BLOQUE arreglo con mensajes de errores [inicio]*/ 
 $errores = Propiedad::getErrores();
 
 
@@ -34,48 +36,45 @@ $estacionamiento = '';
 $vendedores_id = '';
 /* !BLOQUE arreglo con mensajes de errores [fin]*/
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
+  //Crea una nueva instancia
   $propiedad = new Propiedad($_POST);
+
   echo "<hr>";
   echo '<pre>';
   var_dump($propiedad);
   echo '</pre>';
-  
-  $errores=$propiedad->validar();
 
-  echo "<hr>";
-  echo '<pre>';
-  var_dump($errores);
-  echo '</pre>';
- 
+
+  //Genera un nombre único
+  $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
+
+  //Setear la imagen
+  //Realiza un resize a la imagen con intervention
+  if ($_FILES['imagen']['tmp_name']) {
+    $manager = new ImageManager(new GdDriver());
+    $image = $manager->read($_FILES['imagen']['tmp_name'])->resize(800, 600);
+    $propiedad->setImagen($nombreImagen);
+  }
+
+  //validar
+  $errores = $propiedad->validar();
+
+
+
 
   if (empty($errores)) {
-      $propiedad->guardar();
 
-  $imagen = $_FILES['imagen'];
-
-    /* subBloque2 subida de archivos [inicio]*/
-    /* subBloque3 crear carpeta de imagenes [inicio]*/
-    $carpetaImagenes = '../../imagenes/';
-    if (!is_dir($carpetaImagenes)) {
-      mkdir($carpetaImagenes);
+    //Crear la carpeta para subir imagenes
+    if (!is_dir(CARPETA_IMAGENES)) {
+      mkdir(CARPETA_IMAGENES);
     }
-    /* !subBloque3 crear carpeta de imagenes [fin]*/
 
-    /* subBloque3 generar un nombre unico [inicio]*/
-    $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
-    /*     var_dump($nombreImagen); */
-    /* !subBloque3 generar un nombre unico [fin]*/
-    /* subBloque3 subir la imagen [inicio]*/
-    move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen);
+    //Guarda la imagen en el servidor
+    $image->save(CARPETA_IMAGENES . $nombreImagen);
 
-
-    /* !subBloque3 subir la imagen [fin]*/
-    /* !subBloque2 subida de archivos [fin]*/
-    /* $query = " INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, wc,
-estacionamiento,creado,vendedores_id) VALUES ('$titulo','$precio','$nombreImagen','$descripcion','$habitaciones','$wc','$estacionamiento', '$creado','$vendedores_id')"; */
-    /*     var_dump($query); */
-    $resultado = mysqli_query($db, $query);
+    //Guarda en la base de datos
+    $resultado = $propiedad->guardar();
+    //Mensaje de exito
     if ($resultado) {
       header('Location: /admin?resultado=1');
     }
