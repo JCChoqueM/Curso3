@@ -24,7 +24,7 @@ document.getElementById('auto-fill').addEventListener('click', function () {
         'Chalet Familiar en Zona Tranquila',
       ];
       const precios = [15000, 23000, 32000, 18000, 27500];
-      const titulo = cantidadPropiedades + ' - ' + titulos[Math.floor(Math.random() * titulos.length)];
+      const titulo = cantidadPropiedades + 1 + ' - ' + titulos[Math.floor(Math.random() * titulos.length)];
       const precio = precios[Math.floor(Math.random() * precios.length)];
       const descripcion = generarTextoAleatorio(60);
       const habitaciones = numeroAleatorio(1, 9);
