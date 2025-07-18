@@ -24,14 +24,17 @@ $consulta = "SELECT * FROM vendedores";
 $resultadoVendedores = mysqli_query($db, $consulta);
 /* !BLOQUE consultar para obtener los vendedores [fin]*/
 
-/* BLOQUE arreglo con mensajes de errores [inicio]*/ 
+/* BLOQUE arreglo con mensajes de errores [inicio]*/
 $errores = Propiedad::getErrores();
 
 
 /* !BLOQUE arreglo con mensajes de errores [fin]*/
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
   //Crea una nueva instancia
-  $propiedad = new Propiedad($_POST);
+  $propiedad = new Propiedad($_POST['propiedad']);
+  debuguear($propiedad);
+
 
 
   //Genera un nombre único
@@ -39,9 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   //Setear la imagen
   //Realiza un resize a la imagen con intervention
-  if ($_FILES['imagen']['tmp_name']) {
+  if ($_FILES['propiedad']['tmp_name']['imagen']) {
     $manager = new ImageManager(new GdDriver());
-    $image = $manager->read($_FILES['imagen']['tmp_name'])->resize(800, 600);
+    $image = $manager->read($_FILES['propiedad']['tmp_name']['imagen'])->resize(800, 600);
     $propiedad->setImagen($nombreImagen);
   }
 
