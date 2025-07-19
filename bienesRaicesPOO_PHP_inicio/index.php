@@ -74,7 +74,7 @@ incluirTemplate('header', $inicio = true);
 
 <!-- BLOQUE imagen-contacto [inicio] -->
 <section class="imagen-contacto">
-  <h2>Encuentra la casa de tus sueños</h2>
+  <h2>Encuentra la casa de tus sueños y compralo</h2>
   <p>Llena el formulario de contacto y un asesor se pondra en contacto contigo a la brevedad</p>
   <a
     href="contacto.php"
