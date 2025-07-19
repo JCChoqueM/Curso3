@@ -90,7 +90,5 @@ incluirTemplate('header');
 mysqli_close($db);
 /* !BLOQUE 5-cerrar la conexión [fin]*/
 incluirTemplate('footer');
-incluirTemplate('footer');
-incluirTemplate('footer');
-incluirTemplate('footer');
+
 ?>

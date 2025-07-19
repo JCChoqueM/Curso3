@@ -1,8 +1,6 @@
 <?php
 
 use App\Propiedad;
-use App\Propiedad;
-use App\Propiedad;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver as GdDriver;
 
