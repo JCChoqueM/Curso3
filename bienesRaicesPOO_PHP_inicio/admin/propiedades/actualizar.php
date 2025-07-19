@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 incluirTemplate('header');
 ?>
 <main class="contenedor seccion">
-  <h1>Actualizar Propiedades</h1>
+  <h1>Actualizar Propiedad</h1>
   <a href="/admin" class="boton boton-verde">Volver</a>
   <?php foreach ($errores as $error): ?>
     <div class="alerta error">
