@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   //Crea una nueva instancia
   $propiedad = new Propiedad($_POST['propiedad']);
-  debuguear($propiedad);
+  /*   debuguear($propiedad); */
 
 
 
@@ -65,11 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $image->save(CARPETA_IMAGENES . $nombreImagen);
 
     //Guarda en la base de datos
-    $resultado = $propiedad->guardar();
-    //Mensaje de exito
-    if ($resultado) {
-      header('Location: /admin?resultado=1');
-    }
+    $propiedad->guardar();
   }
 }
 

@@ -28,7 +28,7 @@ class Propiedad
     }
     public function __construct($args = [])
     {
-        $this->id = $args['id'] ?? '';
+        $this->id = $args['id'] ?? null;
         $this->titulo = $args['titulo'] ?? '';
         $this->precio = $args['precio'] ?? '';
         $this->imagen = $args['imagen'] ?? '';
@@ -43,7 +43,7 @@ class Propiedad
 
     public function guardar()
     {
-        if (isset($this->id)) {
+        if (!is_null($this->id)) {
             //actualizar
             $this->actualizar();
         } else {
@@ -66,7 +66,10 @@ class Propiedad
         $query .= "')";
 
         $resultado = self::$db->query($query);
-        return $resultado;
+        //Mensaje de exito
+        if ($resultado) {
+            header('Location: /admin?resultado=1');
+        }
     }
     public function actualizar()
     {
@@ -87,6 +90,18 @@ class Propiedad
         }
     }
 
+    //Eliminar un registro
+    public function eliminar()
+    {
+
+        $query = "DELETE FROM propiedades WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
+        $resultado = self::$db->query($query);
+
+        if ($resultado) {
+            $this->borrarImagen();
+            header('Location: /admin?resultado=3');
+        }
+    }
 
 
 
@@ -113,16 +128,21 @@ class Propiedad
     public function setImagen($imagen)
     {
         //Eliminar la imagen previa
-        if (isset($this->id)) {
-            $existeArchivo = file_exists(CARPETA_IMAGENES . $this->imagen);
-
-            if ($existeArchivo) {
-                unlink(CARPETA_IMAGENES . $this->imagen);
-            }
+        if (!is_null($this->id)) {
+            $this->borrarImagen();
         }
         //Asignar al atributo de uimagen el nombre de la imagen
         if ($imagen) {
             $this->imagen = $imagen;
+        }
+    }
+
+    //Eliminar el archivo
+    public function borrarImagen()
+    {
+        $existeArchivo = file_exists(CARPETA_IMAGENES . $this->imagen);
+        if ($existeArchivo) {
+            unlink(CARPETA_IMAGENES . $this->imagen);
         }
     }
 
@@ -134,7 +154,11 @@ class Propiedad
     public function validar()
     {
         if (!$this->titulo) {
-            self::$errores[] = "Debes añadir un titulo";
+            self::$errores[] = "Debes añadir un título";
+        } elseif (mb_strlen($this->titulo, 'UTF-8') > 45) {
+            $longitud = mb_strlen($this->titulo, 'UTF-8');
+            $exceso = $longitud - 45;
+            self::$errores[] = "El título no debe exceder los 45 caracteres. Has usado $longitud caracteres, te pasaste por $exceso.";
         }
         if (!$this->precio) {
             self::$errores[] = "Debes añadir un precio";
