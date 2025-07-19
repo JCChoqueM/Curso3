@@ -7,7 +7,7 @@ incluirTemplate('header');
 <main class="contenedor seccion">
   <!-- subBloque Conoce sobre nosotros [inicio]-->
 
-  <h2>Conoce Sobre Nosotros estamos</h2>
+  <h2>Conoce Sobre Nosotros</h2>
   <div class="contenido-nosotros">
     <div class="imagen">
       <picture>
