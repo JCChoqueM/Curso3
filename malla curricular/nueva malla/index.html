@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Malla Interactiva Medicina – UAGRM</title>
+    <link
+      href="../css2?family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #cce5ff, #ffe6f0, #e0f7fa);
+        background-size: 400% 400%;
+        animation: fondoAnimado 20s ease infinite;
+        color: #1e293b;
+        padding: 20px;
+        line-height: 1.5;
+      }
+
+      /* Animación suave del fondo */
+      @keyframes fondoAnimado {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      h1 {
+        text-align: center;
+        color: #0f172a;
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+        letter-spacing: -0.5px;
+      }
+
+      .malla-grid {
+        display: flex;
+        gap: 24px;
+        overflow-x: auto;
+        padding: 10px;
+        scroll-snap-type: x proximity;
+      }
+
+      .nivel {
+        min-width: 260px;
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 20px;
+        border: 2px solid #cbd5e1;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        scroll-snap-align: start;
+        transition: transform 0.2s ease;
+      }
+
+      .nivel:hover {
+        transform: translateY(-4px);
+      }
+
+      .nivel h2 {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #475569;
+        margin-bottom: 18px;
+        border-bottom: 1px dashed #cbd5e1;
+        padding-bottom: 6px;
+      }
+
+      /* Colores pastel aleatorios para materias activas */
+      .materia {
+        background: linear-gradient(145deg, #fff, #e3f2fd);
+        border-left: 6px solid #60a5fa;
+        border-radius: 12px;
+        padding: 12px 14px;
+        margin-bottom: 12px;
+        color: #1d4ed8;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        user-select: none;
+        position: relative;
+      }
+
+      .materia:hover {
+        background: linear-gradient(145deg, #dbeafe, #e0f2fe);
+        transform: translateY(-2px);
+      }
+
+      .materia:active {
+        transform: scale(0.98);
+        box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      /* BLOQUEADAS */
+      .materia.bloqueado {
+        background: repeating-linear-gradient(45deg, #f8fafc, #f8fafc 10px, #f1f5f9 10px, #f1f5f9 20px);
+        border-left: 6px dashed #9ca3af;
+        color: #9ca3b8;
+        cursor: not-allowed;
+        box-shadow: none;
+      }
+
+      /* APROBADAS */
+      .materia.aprobado {
+        background: linear-gradient(135deg, #dcfce7, #bbf7d0) !important;
+        color: #166534;
+        border-left: 6px solid #22c55e;
+        font-style: normal;
+        text-decoration: none;
+        position: relative;
+        box-shadow: 0 3px 10px rgba(34, 197, 94, 0.15);
+      }
+
+      .materia.aprobado::before {
+        content: '✅ Aprobado';
+        position: absolute;
+        top: 8px;
+        right: 10px;
+        background-color: #22c55e;
+        color: white;
+        font-size: 0.65rem;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-weight: 700;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      }
+      @media (max-width: 1024px) {
+        .malla-grid {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 16px;
+          overflow-x: hidden;
+        }
+
+        .nivel {
+          min-width: 90%;
+          max-width: 500px;
+          margin: auto;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 16px;
+        }
+
+        h1 {
+          font-size: 1.5rem;
+          margin-bottom: 24px;
+        }
+
+        .materia {
+          font-size: 0.9rem;
+          padding: 10px 12px;
+        }
+
+        .materia.aprobado::before {
+          top: 6px;
+          right: 8px;
+          font-size: 0.55rem;
+          padding: 2px 6px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .nivel {
+          padding: 16px;
+        }
+
+        .nivel h2 {
+          font-size: 1rem;
+        }
+
+        .materia {
+          font-size: 0.85rem;
+          padding: 8px 10px;
+        }
+
+        .materia.aprobado::before {
+          font-size: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Malla Interactiva Medicina UAGRM</h1>
+    <div class="malla-grid">
+      <div class="nivel">
+        <h2>1er Año</h2>
+        <div
+          class="materia"
+          id="maf100"
+        >
+          maf100 - Formación Sociocultural
+        </div>
+        <div
+          class="materia"
+          id="med100"
+        >
+          med100 - Anatomía Humana
+        </div>
+        <div
+          class="materia"
+          id="med101"
+        >
+          med101 - Histología y Embriología
+        </div>
+        <div
+          class="materia"
+          id="sap100"
+        >
+          sap100 - Salud Pública I
+        </div>
+      </div>
+      <div class="nivel">
+        <h2>2do Año</h2>
+        <div
+          class="materia"
+          id="med200"
+        >
+          med200 - Anatomía Patológica
+        </div>
+        <div
+          class="materia"
+          id="med201"
+        >
+          med201 - Bacteriología y Virología Médica
+        </div>
+        <div
+          class="materia"
+          id="med202"
+        >
+          med202 - Fisiología Humana
+        </div>
+        <div
+          class="materia"
+          id="med203"
+        >
+          med203 - Bioquímica Médica
+        </div>
+        <div
+          class="materia"
+          id="med209"
+        >
+          med209 - Parasitología y Micología Médica
+        </div>
+        <div
+          class="materia"
+          id="sap200"
+        >
+          sap200 - Salud Pública II
+        </div>
+      </div>
+      <div class="nivel">
+        <h2>3er Año</h2>
+        <div
+          class="materia"
+          id="cir305"
+        >
+          cir305 - Cirugía I
+        </div>
+        <div
+          class="materia"
+          id="med301"
+        >
+          med301 - Fisiopatología
+        </div>
+        <div
+          class="materia"
+          id="med302"
+        >
+          med302 - Semiología General
+        </div>
+        <div
+          class="materia"
+          id="med303"
+        >
+          med303 - Farmacología y Terapéutica
+        </div>
+        <div
+          class="materia"
+          id="med304"
+        >
+          med304 - Infectología y Medicina Tropical
+        </div>
+        <div
+          class="materia"
+          id="sap300"
+        >
+          sap300 - Salud Pública III
+        </div>
+      </div>
+      <div class="nivel">
+        <h2>4to Año</h2>
+        <div
+          class="materia"
+          id="cir400"
+        >
+          cir400 - Cirugía II
+        </div>
+        <div
+          class="materia"
+          id="cir401"
+        >
+          cir401 - Traumatología y Ortopedia
+        </div>
+        <div
+          class="materia"
+          id="cir402"
+        >
+          cir402 - Oftalmología
+        </div>
+        <div
+          class="materia"
+          id="cir403"
+        >
+          cir403 - Anestesiología
+        </div>
+        <div
+          class="materia"
+          id="med400"
+        >
+          med400 - Medicina Interna I
+        </div>
+        <div
+          class="materia"
+          id="med405"
+        >
+          med405 - Neurología
+        </div>
+        <div
+          class="materia"
+          id="med413"
+        >
+          med413 - Dermatología
+        </div>
+        <div
+          class="materia"
+          id="med415"
+        >
+          med415 - Psicopatología
+        </div>
+        <div
+          class="materia"
+          id="sap400"
+        >
+          sap400 - Salud Pública IV
+        </div>
+      </div>
+      <div class="nivel">
+        <h2>5to Año</h2>
+        <div
+          class="materia"
+          id="cir500"
+        >
+          cir500 - Cirugía III
+        </div>
+        <div
+          class="materia"
+          id="cir505"
+        >
+          med505 - Ginecología y Obstetricia
+        </div>
+        <div
+          class="materia"
+          id="cir506"
+        >
+          med506 - Otorrinolaringología
+        </div>
+        <div
+          class="materia"
+          id="med500"
+        >
+          med500 - Medicina Interna II
+        </div>
+        <div
+          class="materia"
+          id="med501"
+        >
+          med501 - Psicología y Salud Mental
+        </div>
+        <div
+          class="materia"
+          id="med504"
+        >
+          med504 - Pediatría
+        </div>
+        <div
+          class="materia"
+          id="med508"
+        >
+          med508 - Medicina Legal y Ética Médica
+        </div>
+      </div>
+      <div class="nivel">
+        <h2>6to Año</h2>
+        <div
+          class="materia"
+          id="grl001"
+        >
+          grl001 - Internado Rotatorio
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const creditos = {
+        //1er año
+        maf100: 3,
+        med100: 8,
+        med101: 4,
+        sap100: 2,
+        //2do año
+        med200: 4,
+        med201: 4,
+        med202: 4,
+        med203: 4,
+        med209: 4,
+        sap200: 2,
+        //3er año
+        cir305: 4,
+        med301: 4,
+        med302: 4,
+        med303: 4,
+        med304: 4,
+        sap300: 2,
+        //4to año
+        cir400: 4,
+        cir401: 2,
+        cir402: 2,
+        cir403: 2,
+        med400: 4,
+        med405: 2,
+        med413: 2,
+        med415: 2,
+        sap400: 2,
+        //5to año
+        cir500: 4,
+        med505: 4,
+        med506: 2,
+        med500: 4,
+        med501: 3,
+        med504: 4,
+        med508: 2,
+        //6to año
+        grl001: 30,
+      };
+
+      const prerequisitos = {
+        //2do año
+        med200: ['med100', 'med101'],
+        med201: ['med101'],
+        med202: ['med100', 'med101'],
+        med203: ['med100'],
+        med209: ['med101'],
+        sap200: ['sap100'],
+        //3er año
+        cir305: ['med202', 'med203'],
+        med301: ['med200', 'med202'],
+        med302: ['med202'],
+        med303: ['med202', 'med203'],
+        med304: ['med201', 'med209'],
+        sap300: ['sap200'],
+        //4to año
+        cir400: ['cir305'],
+        cir401: ['cir305'],
+        cir402: ['cir305'],
+        cir403: ['med303'],
+        med400: ['med301', 'med302'],
+        med405: ['med302'],
+        med413: ['med304'],
+        med415: ['med302'],
+        sap400: ['sap300'],
+        //5to año
+        cir500: ['cir400'],
+        cir505: ['cir400', 'med400'],
+        cir506: ['med405'],
+        med500: ['med400'],
+        med501: ['med415'],
+        med504: ['med400'],
+        med508: ['sap400'],
+        //6to año
+        grl001: ['maf100', 'cir401', 'cir402', 'cir403', 'cir500', 'med500', 'med504', 'cir505', 'cir506', 'med413', 'med508', 'med501'],
+      };
+
+      function obtenerAprobados() {
+        const data = localStorage.getItem('mallaAprobados');
+        return data ? JSON.parse(data) : [];
+      }
+
+      function guardarAprobados(aprobados) {
+        localStorage.setItem('mallaAprobados', JSON.stringify(aprobados));
+      }
+
+      function actualizarDesbloqueos() {
+        const aprobados = obtenerAprobados();
+        for (const [ramo, requisitos] of Object.entries(prerequisitos)) {
+          const elem = document.getElementById(ramo);
+          if (!elem) continue;
+
+          const puedeDesbloquear = requisitos.every((req) => aprobados.includes(req));
+
+          if (!elem.classList.contains('aprobado')) {
+            if (puedeDesbloquear) elem.classList.remove('bloqueado');
+            else elem.classList.add('bloqueado');
+          } else {
+            elem.classList.remove('bloqueado');
+          }
+        }
+      }
+
+      function aprobar(e) {
+        const ramo = e.currentTarget;
+        if (ramo.classList.contains('bloqueado')) return;
+
+        ramo.classList.toggle('aprobado');
+
+        const aprobados = obtenerAprobados();
+        if (ramo.classList.contains('aprobado')) {
+          if (!aprobados.includes(ramo.id)) aprobados.push(ramo.id);
+        } else {
+          const idx = aprobados.indexOf(ramo.id);
+          if (idx > -1) aprobados.splice(idx, 1);
+        }
+        guardarAprobados(aprobados);
+        actualizarDesbloqueos();
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        const ramos = document.querySelectorAll('.materia');
+
+        const aprobados = obtenerAprobados();
+        ramos.forEach((ramo) => {
+          if (aprobados.includes(ramo.id)) {
+            ramo.classList.add('aprobado');
+          }
+        });
+
+        ramos.forEach((ramo) => ramo.addEventListener('click', aprobar));
+
+        actualizarDesbloqueos();
+      });
+    </script>
+  </body>
+</html>
