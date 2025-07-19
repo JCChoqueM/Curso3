@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 incluirTemplate('header');
 ?>
 <main class="contenedor seccion">
-  <h1>Administrador de Bienes Raices</h1>
+  <h1>Administrador de Bienes Raices dueño</h1>
   <?php
   if (intval($resultado) === 1) :
   ?>
