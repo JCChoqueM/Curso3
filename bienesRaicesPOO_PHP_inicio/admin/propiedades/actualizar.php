@@ -29,7 +29,7 @@ $resultadoVendedores = mysqli_query($db, $consulta);
 /* !BLOQUE consultar para obtener los vendedores [fin]*/
 
 /* BLOQUE arreglo con mensajes de errores [inicio]*/
-/* BLOQUE arreglo con mensajes de errores [inicio]*/
+
 $errores = Propiedad::getErrores();
 
 

@@ -36,14 +36,6 @@ incluirTemplate('header');
 ?>
 <main class="contenedor seccion">
   <h1>Administrador de Bienes Raices</h1>
-  <h1>Administrador de Bienes Raices</h1>
-  <h1>Administrador de Bienes Raices</h1>
-  <h1>Administrador de Bienes Raices</h1>
-  <h1>Administrador de Bienes Raices</h1>
-  <h1>Administrador de Bienes Raices</h1>
-  <h1>Administrador de Bienes Raices</h1>
-  <h1>Administrador de Bienes Raices</h1>
-  <h1>Administrador de Bienes Raices</h1>
   <?php
   if (intval($resultado) === 1) :
   ?>

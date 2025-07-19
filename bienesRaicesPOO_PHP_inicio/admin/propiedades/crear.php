@@ -90,6 +90,4 @@ incluirTemplate('header');
 </main>
 <?php
 incluirTemplate('footer');
-incluirTemplate('footer');
-incluirTemplate('footer');
 ?>
