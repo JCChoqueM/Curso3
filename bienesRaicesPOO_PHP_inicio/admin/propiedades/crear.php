@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 incluirTemplate('header');
 ?>
 <main class="contenedor seccion">
-  <h1>Crear nueva propiedad</h1>
+  <h1>Crear</h1>
   <a href="/admin" class="boton boton-verde">Volver</a>
   <button type="button" class="boton boton-amarillo" id="auto-fill">Llenado Automático</button>
   <?php foreach ($errores as $error): ?>
