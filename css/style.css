@@ -13,13 +13,16 @@ h1, p, a {
 }
 .contenido {
     max-width: 1200px;
-    margin: 5rem auto 0 auto;
+
     color: white;
     font-size: 3rem;
     font-family: 'Carrois Gothic SC', sans-serif;
 }
 h1 {
     font-size: 4rem;
+
+    margin:2rem auto;
+
 }
 a {
     font-size: 1.4rem;
