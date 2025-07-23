@@ -2,12 +2,15 @@
 require '../includes/app.php';
 
 use App\Propiedad;
+use App\Vendedor;
 /* session_start(); */
 
 estaAutenticado();
 //implementar un metodo para obtener todas las propiedades
 
 $propiedades = Propiedad::all();
+$vendedores = Vendedor::all();
+debuguear($vendedores);
 
 
 $resultado = $_GET['resultado'] ?? null;
