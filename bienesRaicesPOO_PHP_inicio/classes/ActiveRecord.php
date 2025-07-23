@@ -95,10 +95,9 @@ class ActiveRecord
 
     //Eliminar un registro
     public function eliminar()
-    {
-    ;
+    {;
         $query = "DELETE FROM " . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
-  
+
 
         $resultado = self::$db->query($query);
 
@@ -145,7 +144,7 @@ class ActiveRecord
     //Eliminar el archivo
     public function borrarImagen()
     {
-    
+
         $existeArchivo = file_exists(CARPETA_IMAGENES . $this->imagen);
         if ($existeArchivo) {
             unlink(CARPETA_IMAGENES . $this->imagen);
@@ -193,10 +192,8 @@ class ActiveRecord
     //lista todos los registros
     public static function all()
     {
-
-
         $query = "SELECT * FROM " . static::$tabla;
-          
+
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
@@ -205,9 +202,9 @@ class ActiveRecord
     public static function find($id)
     {
         $query = "SELECT * FROM " . static::$tabla . " WHERE id = $id";
-         
+
         $resultado = self::consultarSQL($query);
-   
+
         return array_shift($resultado);
     }
 
