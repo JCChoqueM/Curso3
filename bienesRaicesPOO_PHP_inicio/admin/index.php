@@ -10,7 +10,7 @@ estaAutenticado();
 
 $propiedades = Propiedad::all();
 $vendedores = Vendedor::all();
-debuguear($vendedores);
+
 
 
 $resultado = $_GET['resultado'] ?? null;
@@ -24,11 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($id) {
 
     $propiedad = Propiedad::find($id);
-    
-    $propiedad->eliminar();
 
-  
- 
+    $propiedad->eliminar();
   
   }
 }
