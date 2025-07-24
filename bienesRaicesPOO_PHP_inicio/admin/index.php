@@ -13,6 +13,7 @@ $vendedores = Vendedor::all();
 
 
 
+
 $resultado = $_GET['resultado'] ?? null;
 
 
