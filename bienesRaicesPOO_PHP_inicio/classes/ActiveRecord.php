@@ -5,41 +5,23 @@ namespace App;
 class ActiveRecord
 {
     protected static $db;
-    protected static $columnasDB = ['id', 'titulo', 'precio', 'imagen', 'descripcion', 'habitaciones', 'wc', 'estacionamiento', 'creado', 'vendedores_id'];
+    protected static $columnasDB = [];
     protected static $tabla = '';
+
+ 
+
+
 
     //Errores
     protected static $errores = [];
 
 
-    public $id;
-    public $titulo;
-    public $precio;
-    public $imagen;
-    public $descripcion;
-    public $habitaciones;
-    public $wc;
-    public $estacionamiento;
-    public $creado;
-    public $vendedores_id;
     //definir la conexion a la BD
     public static function setDB($database)
     {
         self::$db = $database;
     }
-    public function __construct($args = [])
-    {
-        $this->id = $args['id'] ?? null;
-        $this->titulo = $args['titulo'] ?? '';
-        $this->precio = $args['precio'] ?? '';
-        $this->imagen = $args['imagen'] ?? '';
-        $this->descripcion = $args['descripcion'] ?? '';
-        $this->habitaciones = $args['habitaciones'] ?? '';
-        $this->wc = $args['wc'] ?? '';
-        $this->estacionamiento = $args['estacionamiento'] ?? '';
-        $this->creado = date('Y/m/d');
-        $this->vendedores_id = $args['vendedores_id'] ?? 1;
-    }
+
 
 
     public function guardar()
@@ -113,7 +95,8 @@ class ActiveRecord
     public function atributos()
     {
         $atributos = [];
-        foreach (self::$columnasDB as $columna) {
+
+        foreach (static::$columnasDB as $columna) {
             if ($columna === 'id') continue;
             $atributos[$columna] = $this->$columna;
         }
@@ -144,7 +127,6 @@ class ActiveRecord
     //Eliminar el archivo
     public function borrarImagen()
     {
-
         $existeArchivo = file_exists(CARPETA_IMAGENES . $this->imagen);
         if ($existeArchivo) {
             unlink(CARPETA_IMAGENES . $this->imagen);
@@ -154,40 +136,13 @@ class ActiveRecord
     //Validacion
     public static function getErrores()
     {
-        return self::$errores;
+        return static::$errores;
     }
+
     public function validar()
     {
-        if (!$this->titulo) {
-            self::$errores[] = "Debes añadir un título";
-        } elseif (mb_strlen($this->titulo, 'UTF-8') > 45) {
-            $longitud = mb_strlen($this->titulo, 'UTF-8');
-            $exceso = $longitud - 45;
-            self::$errores[] = "El título no debe exceder los 45 caracteres. Has usado $longitud caracteres, te pasaste por $exceso.";
-        }
-        if (!$this->precio) {
-            self::$errores[] = "Debes añadir un precio";
-        }
-        if (strlen($this->descripcion) < 50) {
-            self::$errores[] = "La descripcion es obligatoria y debe tener al menos 50 caracteres";
-        }
-        if (!$this->habitaciones) {
-            self::$errores[] = "Debes añadir un numero de habitaciones";
-        }
-        if (!$this->wc) {
-            self::$errores[] = "Debes añadir un numero de baños";
-        }
-        if (!$this->estacionamiento) {
-            self::$errores[] = "Debes añadir un numero de estacionamientos";
-        }
-        if (!$this->vendedores_id) {
-            self::$errores[] = "Debes Elejir un vendedor";
-        }
-        if (!$this->imagen) {
-            self::$errores[] = "La imagen es obligatoria";
-        }
-
-        return self::$errores;
+        static::$errores = [];
+        return static::$errores;
     }
     //lista todos los registros
     public static function all()
@@ -218,7 +173,7 @@ class ActiveRecord
         //Iterar los resultados
         $array = [];
         while ($registro = $resultado->fetch_assoc()) {
-            $array[] = self::crearObjeto($registro);
+            $array[] = static::crearObjeto($registro);
         }
 
         //Liberar la memoria

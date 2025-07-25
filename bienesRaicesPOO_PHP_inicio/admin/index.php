@@ -19,6 +19,9 @@ $resultado = $_GET['resultado'] ?? null;
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
+  debuguear($_POST);
   $id = $_POST['id'];
   $id = filter_var($id, FILTER_VALIDATE_INT);
 
@@ -27,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $propiedad = Propiedad::find($id);
 
     $propiedad->eliminar();
-  
   }
 }
 
@@ -51,7 +53,7 @@ incluirTemplate('header');
     <p class="alerta exito rojo">Eliminado Correctamente</p>
   <?php endif; ?>
   <a href="/admin/propiedades/crear.php" class="boton boton-verde">Nueva propiedad</a>
-
+  <h2>Propiedades</h2>
   <table class="propiedades">
     <thead>
       <tr>
@@ -84,12 +86,41 @@ incluirTemplate('header');
     <!-- !BLOQUE 4-Mostrar los resultado [fin]-->
 
   </table>
+  <h2>Vendedores</h2>
+  <table class="propiedades">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Telefono</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <!-- BLOQUE 4-Mostrar los resultado [inicio]-->
+    <tbody>
+      <?php foreach ($vendedores as $vendedor): ?>
+
+        <tr>
+          <td><?php echo $vendedor->id; ?></td>
+          <td><?php echo $vendedor->nombre." ".$vendedor->apeliido; ?></td>
+          <td><?php echo $vendedor->telefono; ?></td>
+          <td>
+            <form method="POST" class="w-100">
+              <input type="hidden" name="id" value="<?php echo $vendedor->id; ?>">
+              <input type="submit" class="boton-rojo-block" value="Eliminar">
+            </form>
+            <a href="/admin/propiedades/actualizar.php?id=<?php echo $vendedor->id; ?>" class="boton-amarillo-block">Actualizar</a>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+    <!-- !BLOQUE 4-Mostrar los resultado [fin]-->
+
+  </table>
 </main>
 <?php
 
-/* BLOQUE 5-cerrar la conexión [inicio]*/
-mysqli_close($db);
-/* !BLOQUE 5-cerrar la conexión [fin]*/
+
 incluirTemplate('footer');
 
 ?>

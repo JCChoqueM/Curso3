@@ -3,26 +3,20 @@ require '../../includes/app.php';
 
 
 use App\Propiedad;
+use App\Vendedor;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver as GdDriver;
 
 
-
-/* $auth = estaAutenticado(); */
-
 estaAutenticado();
 
-/* if (!$auth) {
-  header('Location: /');
-} */
 
-$db = conectarDB();
+
 $propiedad = new Propiedad;
 
-/* BLOQUE consultar para obtener los vendedores [inicio]*/
-$consulta = "SELECT * FROM vendedores";
-$resultadoVendedores = mysqli_query($db, $consulta);
-/* !BLOQUE consultar para obtener los vendedores [fin]*/
+//Consulta para obtener los vendedores
+$vendedores = Vendedor::all();
+
 
 /* BLOQUE arreglo con mensajes de errores [inicio]*/
 $errores = Propiedad::getErrores();
