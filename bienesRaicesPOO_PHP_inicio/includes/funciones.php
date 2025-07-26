@@ -37,7 +37,7 @@ function debuguear($variable)
 //Escapa /sanitizar el HTML
 function s($html): string
 {
-    $s = htmlspecialchars($html);    
+    $s = htmlspecialchars($html);
     return $s;
 }
 
@@ -46,4 +46,28 @@ function validarTipoContenido($tipo)
 {
     $tipos = ['vendedor', 'propiedad'];
     return in_array($tipo, $tipos);
+}
+
+//Muestra los mensajes
+function mostrarNotificacion($codigo)
+{
+    switch ($codigo) {
+        case 1:
+            return [
+                'mensaje' => 'Creado Correctamente',
+                'valor' => ''
+            ];
+        case 2:
+            return [
+                'mensaje' => 'Actualizado Correctamente',
+                'valor' => 'amarillo'
+            ];
+        case 3:
+            return [
+                'mensaje' => 'Eliminado Correctamente',
+                'valor' => 'rojo'
+            ];
+        default:
+            return false;
+    }
 }

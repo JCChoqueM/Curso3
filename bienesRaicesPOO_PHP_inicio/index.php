@@ -60,7 +60,7 @@ incluirTemplate('header', $inicio = true);
   <h2>Casas y Depas en Venta</h2>
   <!-- subBloque contenedor-anuncios [inicio] -->
   <?php
-  $limite = 3;
+
   include 'includes/templates/anuncios.php';
   ?>
   <!-- !subBloque contenedor-anuncios [fin] -->

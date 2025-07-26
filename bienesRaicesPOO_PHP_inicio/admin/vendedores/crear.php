@@ -38,7 +38,7 @@ incluirTemplate('header');
       <?php echo $error; ?>
     </div>
   <?php endforeach; ?>
-  <form action="" class="formulario" method="POST" action="/admin/vendedores/crear.php ">
+  <form class="formulario" method="POST" action="/admin/vendedores/crear.php ">
     <?php include '../../includes/templates/formulario_vendedores.php'; ?>
 
     <input type="submit" value="Registrar Vendedor" class="boton boton-verde">
